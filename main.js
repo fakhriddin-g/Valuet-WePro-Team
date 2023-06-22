@@ -1,7 +1,11 @@
-let conts = document.querySelectorAll('.container')
+let conts = document.querySelectorAll('main .container')
 let tabs = document.querySelectorAll("aside p")
 
-conts.forEach(cont => cont.classList.add('hide'))
+conts.forEach((cont, idx) => {
+	if(idx !== 0) {
+		cont.classList.add('hide')
+	}
+})
 
 tabs.forEach(btn => {
 	let key = btn.id
