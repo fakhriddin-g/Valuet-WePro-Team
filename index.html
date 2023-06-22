@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="/styles/style.scss">
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet">
+	<title>Valuet</title>
+</head>
+
+<body>
+	<div class="layouts">
+		<header>
+			<div class="container">
+				<div class="header">
+					<div class="header__left">
+						<input type="text">
+					</div>
+					<div class="header__right">
+						<button class="mail btn_after"></button>
+						<button class="bell btn_after"></button>
+					</div>
+				</div>
+			</div>
+		</header>
+		<aside>
+			<h2 class="logo">VALUET</h2>
+			<div class="actions">
+				<nav class="links">
+					<p class="active_link" id="overview">Overview</p>
+					<p id="wallets">Wallets</p>
+					<p id="transactions">Transactions</p>
+					<p id="exchange">Exchange</p>
+					<p id="market">Market</p>
+				</nav>
+				<div class="aside_out">
+					<p id="ellipse">Mike Jakson</p>
+					<p id="out">Log Out</p>
+				</div>
+			</div>
+		</aside>
+		<main>
+			<div class="container" id="cont-overview" ></div>
+			<div class="container" id="cont-wallets" ></div>
+			<div class="container" id="cont-transactions" ></div>
+			<div class="container" id="cont-exchange" ></div>
+			<div class="container" id="cont-market" ></div>
+		</main>
+	</div>
+	<script type="module" src="/main.js"></script>
+</body>
+
+</html>
