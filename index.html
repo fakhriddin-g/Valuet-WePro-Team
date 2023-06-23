@@ -5,8 +5,9 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="stylesheet" href="/styles/style.scss">
+	<link rel="stylesheet" href="/styles/transactions.scss">
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
-      rel="stylesheet">
+		rel="stylesheet">
 	<title>Valuet</title>
 </head>
 
@@ -42,11 +43,181 @@
 			</div>
 		</aside>
 		<main>
-			<div class="container" id="cont-overview" ></div>
-			<div class="container" id="cont-wallets" ></div>
-			<div class="container" id="cont-transactions" ></div>
-			<div class="container" id="cont-exchange" ></div>
-			<div class="container" id="cont-market" ></div>
+			<div class="container" id="cont-overview"></div>
+			<div class="container" id="cont-wallets"></div>
+
+			<div class="container" id="cont-transactions">
+				<div class="trans-title trans-row">
+					<h2>Transactions</h2>
+					<button>Export History</button>
+				</div>
+				<div class="trans-wrapper">
+					<div class="trans-total trans-row">
+						<p>Total 1,543</p>
+						<div class="trans-btns trans-row">
+							<button class="trans-btn_active">All</button>
+							<button>Send</button>
+							<button>Recent</button>
+						</div>
+					</div>
+					<div class="trans-column">
+						<div class="trans-row trans-item">
+							<div class="trans-row__left trans-row">
+								<span>AM 01:16</span>
+								<span>24 dec 2018</span>
+								<img class="trans-currency" src="/public/icons/ellipse.svg" alt="currency">
+							</div>
+							<div class="trans-row__center trans-row">
+								<div class="trans_waiting"></div>
+								<span class="trans-id">74EKRJMXkhKDR5dj34578fgirwE22sfg</span>
+							</div>
+							<div class="trans-row__right trans-row">
+								<span class="amount">0.0085 BTC</span>
+								<button class="btn-complete">Complete</button>
+							</div>
+						</div>
+						<div class="trans-row trans-item">
+							<div class="trans-row__left trans-row">
+								<span>AM 01:16</span>
+								<span>24 dec 2018</span>
+								<img class="trans-currency" src="/public/icons/ellipse.svg" alt="currency">
+							</div>
+							<div class="trans-row__center trans-row">
+								<div class="trans_waiting"></div>
+								<span class="trans-id">74EKRJMXkhKDR5dj34578fgirwE22sfg</span>
+							</div>
+							<div class="trans-row__right trans-row">
+								<span class="amount">0.0085 BTC</span>
+								<button class="btn-complete">Complete</button>
+							</div>
+						</div>
+						<div class="trans-row trans-item">
+							<div class="trans-row__left trans-row">
+								<span>AM 01:16</span>
+								<span>24 dec 2018</span>
+								<img class="trans-currency" src="/public/icons/ellipse.svg" alt="currency">
+							</div>
+							<div class="trans-row__center trans-row">
+								<div class="trans_waiting"></div>
+								<span class="trans-id">74EKRJMXkhKDR5dj34578fgirwE22sfg</span>
+							</div>
+							<div class="trans-row__right trans-row">
+								<span class="amount">0.0085 BTC</span>
+								<button class="btn-complete">Complete</button>
+							</div>
+						</div>
+						<div class="trans-row trans-item">
+							<div class="trans-row__left trans-row">
+								<span>AM 01:16</span>
+								<span>24 dec 2018</span>
+								<img class="trans-currency" src="/public/icons/ellipse.svg" alt="currency">
+							</div>
+							<div class="trans-row__center trans-row">
+								<div class="trans_waiting trans-error"></div>
+								<span class="trans-id">74EKRJMXkhKDR5dj34578fgirwE22sfg</span>
+							</div>
+							<div class="trans-row__right trans-row">
+								<span class="amount">0.0085 BTC</span>
+								<button class="btn-error">Error</button>
+							</div>
+						</div>
+						<div class="trans-row trans-item">
+							<div class="trans-row__left trans-row">
+								<span>AM 01:16</span>
+								<span>24 dec 2018</span>
+								<img class="trans-currency" src="/public/icons/ellipse.svg" alt="currency">
+							</div>
+							<div class="trans-row__center trans-row">
+								<div class="trans_waiting"></div>
+								<span class="trans-id">74EKRJMXkhKDR5dj34578fgirwE22sfg</span>
+							</div>
+							<div class="trans-row__right trans-row">
+								<span class="amount">0.0085 BTC</span>
+								<button>Waiting</button>
+							</div>
+						</div>
+						<div class="trans-row trans-item">
+							<div class="trans-row__left trans-row">
+								<span>AM 01:16</span>
+								<span>24 dec 2018</span>
+								<img class="trans-currency" src="/public/icons/ellipse.svg" alt="currency">
+							</div>
+							<div class="trans-row__center trans-row">
+								<div class="trans_waiting"></div>
+								<span class="trans-id">74EKRJMXkhKDR5dj34578fgirwE22sfg</span>
+							</div>
+							<div class="trans-row__right trans-row">
+								<span class="amount">0.0085 BTC</span>
+								<button>Waiting</button>
+							</div>
+						</div>
+						<div class="trans-row trans-item">
+							<div class="trans-row__left trans-row">
+								<span>AM 01:16</span>
+								<span>24 dec 2018</span>
+								<img class="trans-currency" src="/public/icons/ellipse.svg" alt="currency">
+							</div>
+							<div class="trans-row__center trans-row">
+								<div class="trans_waiting"></div>
+								<span class="trans-id">74EKRJMXkhKDR5dj34578fgirwE22sfg</span>
+							</div>
+							<div class="trans-row__right trans-row">
+								<span class="amount">0.0085 BTC</span>
+								<button>Waiting</button>
+							</div>
+						</div>
+						<div class="trans-row trans-item">
+							<div class="trans-row__left trans-row">
+								<span>AM 01:16</span>
+								<span>24 dec 2018</span>
+								<img class="trans-currency" src="/public/icons/ellipse.svg" alt="currency">
+							</div>
+							<div class="trans-row__center trans-row">
+								<div class="trans_waiting trans-error"></div>
+								<span class="trans-id">74EKRJMXkhKDR5dj34578fgirwE22sfg</span>
+							</div>
+							<div class="trans-row__right trans-row">
+								<span class="amount">0.0085 BTC</span>
+								<button class="btn-error">Error</button>
+							</div>
+						</div>
+						<div class="trans-row trans-item">
+							<div class="trans-row__left trans-row">
+								<span>AM 01:16</span>
+								<span>24 dec 2018</span>
+								<img class="trans-currency" src="/public/icons/ellipse.svg" alt="currency">
+							</div>
+							<div class="trans-row__center trans-row">
+								<div class="trans_waiting"></div>
+								<span class="trans-id">74EKRJMXkhKDR5dj34578fgirwE22sfg</span>
+							</div>
+							<div class="trans-row__right trans-row">
+								<span class="amount">0.0085 BTC</span>
+								<button>Waiting</button>
+							</div>
+						</div>
+						<div class="trans-row trans-item">
+							<div class="trans-row__left trans-row">
+								<span>AM 01:16</span>
+								<span>24 dec 2018</span>
+								<img class="trans-currency" src="/public/icons/ellipse.svg" alt="currency">
+							</div>
+							<div class="trans-row__center trans-row">
+								<div class="trans_waiting"></div>
+								<span class="trans-id">74EKRJMXkhKDR5dj34578fgirwE22sfg</span>
+							</div>
+							<div class="trans-row__right trans-row">
+								<span class="amount">0.0085 BTC</span>
+								<button>Waiting</button>
+							</div>
+						</div>
+					</div>
+					<div class="after"></div>
+				</div>
+			</div>
+
+			<div class="container" id="cont-exchange"></div>
+			<div class="container" id="cont-market"></div>
 		</main>
 	</div>
 	<script type="module" src="/main.js"></script>

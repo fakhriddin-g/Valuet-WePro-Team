@@ -313,50 +313,35 @@ aside {
 main {
     position: relative;
     grid-area: m;
-    color: #018FFF;
-    padding-top: 40px;
-
-    h2 {
-        color: #FFF;
-        font-size: 24px;
-        font-weight: 600;
-        margin-bottom: 20px;
-    }
-
-    p {
-        width: 500px;
-        padding: 20px;
-        border-radius: 20px;
-        box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.25);
-        background: linear-gradient(176.95deg, rgba(27, 18, 78, 0.2) -32.8%, #0F0B38 88.83%);
-    }
-
-    .wrapper {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        align-items: center;
-        gap: 20px;
-    }
+    color: #FFF;
+    padding-top: 28px;
 
     .container {
         position: relative;
         height: 100%;
-        background-color: red;
         transition: .5s ease;
         right: 0%;
         opacity: 1;
     }
 
+    #cont-overview {
+        background-color: red;
+    }
+
     #cont-wallets {
         background-color: yellow;
     }
+
     #cont-transactions {
-        background-color: green;
+        * {
+            font-family: Open Sans;
+        }
     }
+
     #cont-exchange {
         background-color: purple;
     }
+
     #cont-market {
         background-color: pink;
     }

@@ -1,8 +1,11 @@
+import { transactions } from "./modules/db"
+import { reloadTransactions } from "./modules/reload"
+
 let conts = document.querySelectorAll('main .container')
 let tabs = document.querySelectorAll("aside p")
 
 conts.forEach((cont, idx) => {
-	if(idx !== 0) {
+	if (idx !== 2) {
 		cont.classList.add('hide')
 	}
 })
@@ -23,5 +26,21 @@ tabs.forEach(btn => {
 	}
 })
 
+let trans_column = document.querySelector(".trans-column")
 
+reloadTransactions(transactions, trans_column)
 
+let filterBtns = document.querySelectorAll('.trans-btns button')
+
+filterBtns.forEach(btn => {
+	btn.onclick = () => {
+		filterBtns.forEach(btn => btn.classList.remove("trans-btn_active"))
+		btn.classList.add("trans-btn_active")
+	}
+})
+
+let hystory = document.querySelector(".trans-title button")
+
+hystory.onclick = () => {
+	console.log(transactions);
+}

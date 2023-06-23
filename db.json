@@ -1,19 +1,13 @@
 {
-  "posts": [
+  "transactions": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "id": "74EKRJMXkhKDR5dj34578fgirwE22sfg",
+      "currency": "BTC",
+      "succes": "true",
+      "date": {
+        "time": "01:16",
+        "day": "24 dec 2018"
+      }
     }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }
