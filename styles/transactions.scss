@@ -169,6 +169,8 @@
     max-height: 400px;
     gap: 16px;
     overflow-y: scroll;
+    padding-bottom: 132px;
+    transition: .5s ease;
 
     &::-webkit-scrollbar {
         display: none;
