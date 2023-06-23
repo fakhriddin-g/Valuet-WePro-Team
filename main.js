@@ -27,9 +27,19 @@ tabs.forEach(btn => {
 })
 
 let trans_column = document.querySelector(".trans-column")
+let trans_smoke = document.querySelector(".trans-wrapper .after")
 
 reloadTransactions(transactions, trans_column)
 
+if (trans_column.childElementCount <= 4) {
+	trans_smoke.style.display = "none"
+}
+trans_smoke.onclick = () => {
+	trans_smoke.style.display = "none"
+	setTimeout(() => {
+		trans_smoke.style.display = "block"
+	}, 1000);
+}
 let filterBtns = document.querySelectorAll('.trans-btns button')
 
 filterBtns.forEach(btn => {
