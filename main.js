@@ -35,12 +35,16 @@ if (trans_column.childElementCount <= 4) {
 	trans_smoke.style.display = "none"
 }
 
+
+trans_column.onscroll = () => {
+	trans_smoke.style.display = "block"
+}
+
 trans_smoke.onclick = () => {
 	trans_column.scrollTop = trans_column.scrollHeight;
-	// trans_smoke.style.display = "none"
-	// setTimeout(() => {
-	// 	trans_smoke.style.display = "block"
-	// }, 1000);
+	setTimeout(() => {
+		trans_smoke.style.display = "none"
+	}, 100);
 }
 
 let filterBtns = document.querySelectorAll('.trans-btns button')
