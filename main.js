@@ -5,7 +5,7 @@ let conts = document.querySelectorAll('main .container')
 let tabs = document.querySelectorAll("aside p")
 
 conts.forEach((cont, idx) => {
-	if (idx !== 2) {
+	if (idx !== 0) {
 		cont.classList.add('hide')
 	}
 })
