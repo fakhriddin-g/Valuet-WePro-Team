@@ -324,23 +324,25 @@ main {
       font-family: Open Sans;
     }
   }
-
+  
   #cont-wallets {
     background-color: yellow;
   }
-
+  
   #cont-transactions {
     * {
       font-family: Open Sans;
     }
   }
-
+  
   #cont-exchange {
     background-color: purple;
   }
-
+  
   #cont-market {
-    background-color: pink;
+    * {
+      font-family: Open Sans;
+    }
   }
 
   .hide {

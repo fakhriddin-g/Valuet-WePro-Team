@@ -1,465 +1,499 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/styles/style.scss" />
-    <link rel="stylesheet" href="/styles/overview.scss" />
-    <link rel="stylesheet" href="/styles/transactions.scss" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <title>Valuet</title>
-  </head>
 
-  <body>
-    <div class="layouts">
-      <header>
-        <div class="container">
-          <div class="header">
-            <div class="header__left">
-              <input type="text" />
-            </div>
-            <div class="header__right">
-              <button class="mail btn_after"></button>
-              <button class="bell btn_after"></button>
-            </div>
-          </div>
-        </div>
-      </header>
-      <aside>
-        <h2 class="logo">VALUET</h2>
-        <div class="actions">
-          <nav class="links">
-            <p class="active_link" id="overview">Overview</p>
-            <p id="wallets">Wallets</p>
-            <p id="transactions">Transactions</p>
-            <p id="exchange">Exchange</p>
-            <p id="market">Market</p>
-          </nav>
-          <div class="aside_out">
-            <p id="ellipse">Mike Jakson</p>
-            <p id="out">Log Out</p>
-          </div>
-        </div>
-      </aside>
-      <main>
-        
-        <div class="container" id="cont-overview">
-          <div class="dashboard">
-            <!-- ============= -->
-            <!-- Top Container -->
-            <div class="top__container dashboard-container">
-              <div class="top__container-left">
-                <h3>Overview</h3>
-                <span>25 October, Sundey</span>
-              </div>
-              <button class="top__container-right-btn">Add Widget</button>
-            </div>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="/styles/style.scss" />
+	<link rel="stylesheet" href="/styles/overview.scss" />
+	<link rel="stylesheet" href="/styles/transactions.scss" />
+	<link rel="stylesheet" href="/styles/market.scss" />
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
+		rel="stylesheet" />
+	<title>Valuet</title>
+</head>
 
-            <!-- ============= -->
-            <!-- Middle Container -->
-            <div class="middle__container dashboard-container">
-              <!-- Balance -->
-              <div class="middle-container__balance middle-row">
-                <h4>Balance</h4>
-                <div class="circle"></div>
-                <div class="middle-container__balance-wallet">
-                  <div></div>
-                  <p>Ethereum</p>
-                  <span>18%</span>
-                </div>
-                <div class="middle-container__balance-wallet">
-                  <div></div>
-                  <p>Bitcoin</p>
-                  <span>64%</span>
-                </div>
-                <div class="middle-container__balance-wallet">
-                  <div></div>
-                  <p>Dash</p>
-                  <span>18%</span>
-                </div>
-              </div>
-              <!-- Spending -->
-              <div class="middle-container__spend middle-row">
-                <div class="middle-container__spend-row">
-                  <p>Spending</p>
-                  <select name="select" id="select">
-                    <option value="Januay">Januay</option>
-                  </select>
-                </div>
-                <span class="middle-container__spend-total">$ 5,743.35</span>
-                <p class="middle-container__spend-text">total spending</p>
-                <img class="middle-container__spend-img" src="/public/images/spend.png" alt="" />
-              </div>
-              <!-- Wallets -->
-              <div class="middle-container__wallets middle-row">
-                <div class="middle-container__wallet __first-wallet">
-                  <h3>BitCoin</h3>
-                  <div class="middle-container__wallet-content">
-                    <div class="wallet-content__circle1">
-                      <div class="wallet-content__circle2">
-                        <img class="wallet-content__img" src="/public/icons/bitcoin.svg" alt="" />
-                      </div>
-                    </div>
-                    <div class="wallet-content__price">
-                      <span class="wallet-content__price-crypto">600 BTC</span>
-                      <span class="wallet-content__price-usd">$30,000,000</span>
-                    </div>
-                    <div class="wallet-content__currency">
-                      <div class="wallet-content__currency-box">
-                        <img src="/public/icons/green-line.svg" alt="" />
-                        <div class="__currency-box">
-                          <span class="total-currency">$1 200= 0,074 BTC</span>
-                          <span class="crypto-currency">1 BTC = $6 542, 35</span>
-                        </div>
-                      </div>
-                      <div class="wallet-content__currency-box">
-                        <img src="/public/icons/red-line.svg" alt="" />
-                        <div class="__currency-box">
-                          <span class="total-currency">$1 200= 0,074 BTC</span>
-                          <span class="crypto-currency">1 BTC = $6 542, 35</span>
-                        </div>
-                      </div>
-                      <div class="wallet-content__currency-box">
-                        <img src="/public/icons/red-line.svg" alt="" />
-                        <div class="__currency-box">
-                          <span class="total-currency">$1 200= 0,074 BTC</span>
-                          <span class="crypto-currency">1 BTC = $6 542, 35</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="middle-container__wallet __second-wallet">
-                  <h3>GridCoin</h3>
-                  <div class="middle-container__wallet-content">
-                    <div class="wallet-content__circle1">
-                      <div class="wallet-content__circle2">
-                        <img class="wallet-content__img" src="/public/icons/gridcoin.svg" alt="" />
-                      </div>
-                    </div>
-                    <div class="wallet-content__price">
-                      <span class="wallet-content__price-crypto">600 BTC</span>
-                      <span class="wallet-content__price-usd">$30,000,000</span>
-                    </div>
-                    <div class="wallet-content__currency">
-                      <div class="wallet-content__currency-box">
-                        <img src="/public/icons/green-line.svg" alt="" />
-                        <div class="__currency-box">
-                          <span class="total-currency">$1 200= 0,074 BTC</span>
-                          <span class="crypto-currency">1 BTC = $6 542, 35</span>
-                        </div>
-                      </div>
-                      <div class="wallet-content__currency-box">
-                        <img src="/public/icons/red-line.svg" alt="" />
-                        <div class="__currency-box">
-                          <span class="total-currency">$1 200= 0,074 BTC</span>
-                          <span class="crypto-currency">1 BTC = $6 542, 35</span>
-                        </div>
-                      </div>
-                      <div class="wallet-content__currency-box">
-                        <img src="/public/icons/red-line.svg" alt="" />
-                        <div class="__currency-box">
-                          <span class="total-currency">$1 200= 0,074 BTC</span>
-                          <span class="crypto-currency">1 BTC = $6 542, 35</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="middle-container__wallet __third-wallet">
-                  <h3>Ethereum</h3>
-                  <div class="middle-container__wallet-content">
-                    <div class="wallet-content__circle1">
-                      <div class="wallet-content__circle2">
-                        <img class="wallet-content__img" src="/public/icons/ethereum.svg" alt="" />
-                      </div>
-                    </div>
-                    <div class="wallet-content__price">
-                      <span class="wallet-content__price-crypto">600 BTC</span>
-                      <span class="wallet-content__price-usd">$30,000,000</span>
-                    </div>
-                    <div class="wallet-content__currency">
-                      <div class="wallet-content__currency-box">
-                        <img src="/public/icons/green-line.svg" alt="" />
-                        <div class="__currency-box">
-                          <span class="total-currency">$1 200= 0,074 BTC</span>
-                          <span class="crypto-currency">1 BTC = $6 542, 35</span>
-                        </div>
-                      </div>
-                      <div class="wallet-content__currency-box">
-                        <img src="/public/icons/red-line.svg" alt="" />
-                        <div class="__currency-box">
-                          <span class="total-currency">$1 200= 0,074 BTC</span>
-                          <span class="crypto-currency">1 BTC = $6 542, 35</span>
-                        </div>
-                      </div>
-                      <div class="wallet-content__currency-box">
-                        <img src="/public/icons/red-line.svg" alt="" />
-                        <div class="__currency-box">
-                          <span class="total-currency">$1 200= 0,074 BTC</span>
-                          <span class="crypto-currency">1 BTC = $6 542, 35</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="middle-container__wallet __fourth-wallet">
-                  <h3>Aeternity</h3>
-                  <div class="middle-container__wallet-content">
-                    <div class="wallet-content__circle1">
-                      <div class="wallet-content__circle2">
-                        <img class="wallet-content__img" src="/public/icons/aeternity.svg" alt="" />
-                      </div>
-                    </div>
-                    <div class="wallet-content__price">
-                      <span class="wallet-content__price-crypto">600 BTC</span>
-                      <span class="wallet-content__price-usd">$30,000,000</span>
-                    </div>
-                    <div class="wallet-content__currency">
-                      <div class="wallet-content__currency-box">
-                        <img src="/public/icons/green-line.svg" alt="" />
-                        <div class="__currency-box">
-                          <span class="total-currency">$1 200= 0,074 BTC</span>
-                          <span class="crypto-currency">1 BTC = $6 542, 35</span>
-                        </div>
-                      </div>
-                      <div class="wallet-content__currency-box">
-                        <img src="/public/icons/red-line.svg" alt="" />
-                        <div class="__currency-box">
-                          <span class="total-currency">$1 200= 0,074 BTC</span>
-                          <span class="crypto-currency">1 BTC = $6 542, 35</span>
-                        </div>
-                      </div>
-                      <div class="wallet-content__currency-box">
-                        <img src="/public/icons/red-line.svg" alt="" />
-                        <div class="__currency-box">
-                          <span class="total-currency">$1 200= 0,074 BTC</span>
-                          <span class="crypto-currency">1 BTC = $6 542, 35</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+<body>
+	<div class="layouts">
+		<header>
+			<div class="container">
+				<div class="header">
+					<div class="header__left">
+						<input type="text" />
+					</div>
+					<div class="header__right">
+						<button class="mail btn_after"></button>
+						<button class="bell btn_after"></button>
+					</div>
+				</div>
+			</div>
+		</header>
+		<aside>
+			<h2 class="logo">VALUET</h2>
+			<div class="actions">
+				<nav class="links">
+					<p class="active_link" id="overview">Overview</p>
+					<p id="wallets">Wallets</p>
+					<p id="transactions">Transactions</p>
+					<p id="exchange">Exchange</p>
+					<p id="market">Market</p>
+				</nav>
+				<div class="aside_out">
+					<p id="ellipse">Mike Jakson</p>
+					<p id="out">Log Out</p>
+				</div>
+			</div>
+		</aside>
+		<main>
 
-            <!-- ============= -->
-            <!-- Bottom Container -->
-            <div class="bottom__container dashboard-container">
-              <div class="bottom-row"></div>
-              <div class="bottom-row bottom-news">
-                <h3>Recent News</h3>
-                <table class="bottom-news__table">
-                  <tr>
-                    <td class="bottom-news__time">19 hours ago</td>
-                    <td class="bottom-news__title">
-                      SEC Fails to Show Court Blockvest Tokens Are Securities
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="bottom-news__time">23 hours ago</td>
-                    <td class="bottom-news__title">
-                      Report: Bitcoin Mining Doesn’t Fuel Climate Change, It Benefits the Global
-                      Economy
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="bottom-news__time">11.22, 15:27</td>
-                    <td class="bottom-news__title">
-                      A Look at the Multi-Currency Encrypted Messaging App ‘Chat.Chat’
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="bottom-news__time">11.21, 11:43</td>
-                    <td class="bottom-news__title">
-                      Four Ways to Commemorate Bitcoin’s 10th Anniversary
-                    </td>
-                  </tr>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
+			<div class="container" id="cont-overview">
+				<div class="dashboard">
+					<!-- ============= -->
+					<!-- Top Container -->
+					<div class="top__container dashboard-container">
+						<div class="top__container-left">
+							<h3>Overview</h3>
+							<span>25 October, Sundey</span>
+						</div>
+						<button class="top__container-right-btn">Add Widget</button>
+					</div>
 
-        <div class="container" id="cont-wallets"></div>
+					<!-- ============= -->
+					<!-- Middle Container -->
+					<div class="middle__container dashboard-container">
+						<!-- Balance -->
+						<div class="middle-container__balance middle-row">
+							<h4>Balance</h4>
+							<div class="circle"></div>
+							<div class="middle-container__balance-wallet">
+								<div></div>
+								<p>Ethereum</p>
+								<span>18%</span>
+							</div>
+							<div class="middle-container__balance-wallet">
+								<div></div>
+								<p>Bitcoin</p>
+								<span>64%</span>
+							</div>
+							<div class="middle-container__balance-wallet">
+								<div></div>
+								<p>Dash</p>
+								<span>18%</span>
+							</div>
+						</div>
+						<!-- Spending -->
+						<div class="middle-container__spend middle-row">
+							<div class="middle-container__spend-row">
+								<p>Spending</p>
+								<select name="select" id="select">
+									<option value="Januay">Januay</option>
+								</select>
+							</div>
+							<span class="middle-container__spend-total">$ 5,743.35</span>
+							<p class="middle-container__spend-text">total spending</p>
+							<img class="middle-container__spend-img" src="/public/images/spend.png" alt="" />
+						</div>
+						<!-- Wallets -->
+						<div class="middle-container__wallets middle-row">
+							<div class="middle-container__wallet __first-wallet">
+								<h3>BitCoin</h3>
+								<div class="middle-container__wallet-content">
+									<div class="wallet-content__circle1">
+										<div class="wallet-content__circle2">
+											<img class="wallet-content__img" src="/public/icons/bitcoin.svg" alt="" />
+										</div>
+									</div>
+									<div class="wallet-content__price">
+										<span class="wallet-content__price-crypto">600 BTC</span>
+										<span class="wallet-content__price-usd">$30,000,000</span>
+									</div>
+									<div class="wallet-content__currency">
+										<div class="wallet-content__currency-box">
+											<img src="/public/icons/green-line.svg" alt="" />
+											<div class="__currency-box">
+												<span class="total-currency">$1 200= 0,074 BTC</span>
+												<span class="crypto-currency">1 BTC = $6 542, 35</span>
+											</div>
+										</div>
+										<div class="wallet-content__currency-box">
+											<img src="/public/icons/red-line.svg" alt="" />
+											<div class="__currency-box">
+												<span class="total-currency">$1 200= 0,074 BTC</span>
+												<span class="crypto-currency">1 BTC = $6 542, 35</span>
+											</div>
+										</div>
+										<div class="wallet-content__currency-box">
+											<img src="/public/icons/red-line.svg" alt="" />
+											<div class="__currency-box">
+												<span class="total-currency">$1 200= 0,074 BTC</span>
+												<span class="crypto-currency">1 BTC = $6 542, 35</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="middle-container__wallet __second-wallet">
+								<h3>GridCoin</h3>
+								<div class="middle-container__wallet-content">
+									<div class="wallet-content__circle1">
+										<div class="wallet-content__circle2">
+											<img class="wallet-content__img" src="/public/icons/gridcoin.svg" alt="" />
+										</div>
+									</div>
+									<div class="wallet-content__price">
+										<span class="wallet-content__price-crypto">600 BTC</span>
+										<span class="wallet-content__price-usd">$30,000,000</span>
+									</div>
+									<div class="wallet-content__currency">
+										<div class="wallet-content__currency-box">
+											<img src="/public/icons/green-line.svg" alt="" />
+											<div class="__currency-box">
+												<span class="total-currency">$1 200= 0,074 BTC</span>
+												<span class="crypto-currency">1 BTC = $6 542, 35</span>
+											</div>
+										</div>
+										<div class="wallet-content__currency-box">
+											<img src="/public/icons/red-line.svg" alt="" />
+											<div class="__currency-box">
+												<span class="total-currency">$1 200= 0,074 BTC</span>
+												<span class="crypto-currency">1 BTC = $6 542, 35</span>
+											</div>
+										</div>
+										<div class="wallet-content__currency-box">
+											<img src="/public/icons/red-line.svg" alt="" />
+											<div class="__currency-box">
+												<span class="total-currency">$1 200= 0,074 BTC</span>
+												<span class="crypto-currency">1 BTC = $6 542, 35</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="middle-container__wallet __third-wallet">
+								<h3>Ethereum</h3>
+								<div class="middle-container__wallet-content">
+									<div class="wallet-content__circle1">
+										<div class="wallet-content__circle2">
+											<img class="wallet-content__img" src="/public/icons/ethereum.svg" alt="" />
+										</div>
+									</div>
+									<div class="wallet-content__price">
+										<span class="wallet-content__price-crypto">600 BTC</span>
+										<span class="wallet-content__price-usd">$30,000,000</span>
+									</div>
+									<div class="wallet-content__currency">
+										<div class="wallet-content__currency-box">
+											<img src="/public/icons/green-line.svg" alt="" />
+											<div class="__currency-box">
+												<span class="total-currency">$1 200= 0,074 BTC</span>
+												<span class="crypto-currency">1 BTC = $6 542, 35</span>
+											</div>
+										</div>
+										<div class="wallet-content__currency-box">
+											<img src="/public/icons/red-line.svg" alt="" />
+											<div class="__currency-box">
+												<span class="total-currency">$1 200= 0,074 BTC</span>
+												<span class="crypto-currency">1 BTC = $6 542, 35</span>
+											</div>
+										</div>
+										<div class="wallet-content__currency-box">
+											<img src="/public/icons/red-line.svg" alt="" />
+											<div class="__currency-box">
+												<span class="total-currency">$1 200= 0,074 BTC</span>
+												<span class="crypto-currency">1 BTC = $6 542, 35</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="middle-container__wallet __fourth-wallet">
+								<h3>Aeternity</h3>
+								<div class="middle-container__wallet-content">
+									<div class="wallet-content__circle1">
+										<div class="wallet-content__circle2">
+											<img class="wallet-content__img" src="/public/icons/aeternity.svg" alt="" />
+										</div>
+									</div>
+									<div class="wallet-content__price">
+										<span class="wallet-content__price-crypto">600 BTC</span>
+										<span class="wallet-content__price-usd">$30,000,000</span>
+									</div>
+									<div class="wallet-content__currency">
+										<div class="wallet-content__currency-box">
+											<img src="/public/icons/green-line.svg" alt="" />
+											<div class="__currency-box">
+												<span class="total-currency">$1 200= 0,074 BTC</span>
+												<span class="crypto-currency">1 BTC = $6 542, 35</span>
+											</div>
+										</div>
+										<div class="wallet-content__currency-box">
+											<img src="/public/icons/red-line.svg" alt="" />
+											<div class="__currency-box">
+												<span class="total-currency">$1 200= 0,074 BTC</span>
+												<span class="crypto-currency">1 BTC = $6 542, 35</span>
+											</div>
+										</div>
+										<div class="wallet-content__currency-box">
+											<img src="/public/icons/red-line.svg" alt="" />
+											<div class="__currency-box">
+												<span class="total-currency">$1 200= 0,074 BTC</span>
+												<span class="crypto-currency">1 BTC = $6 542, 35</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 
-        <div class="container" id="cont-transactions">
-          <div class="trans-title trans-row">
-            <h2>Transactions</h2>
-            <button>Export History</button>
-          </div>
-          <div class="trans-wrapper">
-            <div class="trans-total trans-row">
-              <p>Total 1,543</p>
-              <div class="trans-btns trans-row">
-                <button class="trans-btn_active">All</button>
-                <button>Send</button>
-                <button>Recent</button>
-              </div>
-            </div>
-            <div class="trans-column">
-              <div class="trans-row trans-item">
-                <div class="trans-row__left trans-row">
-                  <span>AM 01:16</span>
-                  <span>24 dec 2018</span>
-                  <img class="trans-currency" src="/public/icons/ellipse.svg" alt="currency" />
-                </div>
-                <div class="trans-row__center trans-row">
-                  <div class="trans_waiting"></div>
-                  <span class="trans-id">74EKRJMXkhKDR5dj34578fgirwE22sfg</span>
-                </div>
-                <div class="trans-row__right trans-row">
-                  <span class="amount">0.0085 BTC</span>
-                  <button class="btn-complete">Complete</button>
-                </div>
-              </div>
-              <div class="trans-row trans-item">
-                <div class="trans-row__left trans-row">
-                  <span>AM 01:16</span>
-                  <span>24 dec 2018</span>
-                  <img class="trans-currency" src="/public/icons/ellipse.svg" alt="currency" />
-                </div>
-                <div class="trans-row__center trans-row">
-                  <div class="trans_waiting"></div>
-                  <span class="trans-id">74EKRJMXkhKDR5dj34578fgirwE22sfg</span>
-                </div>
-                <div class="trans-row__right trans-row">
-                  <span class="amount">0.0085 BTC</span>
-                  <button class="btn-complete">Complete</button>
-                </div>
-              </div>
-              <div class="trans-row trans-item">
-                <div class="trans-row__left trans-row">
-                  <span>AM 01:16</span>
-                  <span>24 dec 2018</span>
-                  <img class="trans-currency" src="/public/icons/ellipse.svg" alt="currency" />
-                </div>
-                <div class="trans-row__center trans-row">
-                  <div class="trans_waiting"></div>
-                  <span class="trans-id">74EKRJMXkhKDR5dj34578fgirwE22sfg</span>
-                </div>
-                <div class="trans-row__right trans-row">
-                  <span class="amount">0.0085 BTC</span>
-                  <button class="btn-complete">Complete</button>
-                </div>
-              </div>
-              <div class="trans-row trans-item">
-                <div class="trans-row__left trans-row">
-                  <span>AM 01:16</span>
-                  <span>24 dec 2018</span>
-                  <img class="trans-currency" src="/public/icons/ellipse.svg" alt="currency" />
-                </div>
-                <div class="trans-row__center trans-row">
-                  <div class="trans_waiting trans-error"></div>
-                  <span class="trans-id">74EKRJMXkhKDR5dj34578fgirwE22sfg</span>
-                </div>
-                <div class="trans-row__right trans-row">
-                  <span class="amount">0.0085 BTC</span>
-                  <button class="btn-error">Error</button>
-                </div>
-              </div>
-              <div class="trans-row trans-item">
-                <div class="trans-row__left trans-row">
-                  <span>AM 01:16</span>
-                  <span>24 dec 2018</span>
-                  <img class="trans-currency" src="/public/icons/ellipse.svg" alt="currency" />
-                </div>
-                <div class="trans-row__center trans-row">
-                  <div class="trans_waiting"></div>
-                  <span class="trans-id">74EKRJMXkhKDR5dj34578fgirwE22sfg</span>
-                </div>
-                <div class="trans-row__right trans-row">
-                  <span class="amount">0.0085 BTC</span>
-                  <button>Waiting</button>
-                </div>
-              </div>
-              <div class="trans-row trans-item">
-                <div class="trans-row__left trans-row">
-                  <span>AM 01:16</span>
-                  <span>24 dec 2018</span>
-                  <img class="trans-currency" src="/public/icons/ellipse.svg" alt="currency" />
-                </div>
-                <div class="trans-row__center trans-row">
-                  <div class="trans_waiting"></div>
-                  <span class="trans-id">74EKRJMXkhKDR5dj34578fgirwE22sfg</span>
-                </div>
-                <div class="trans-row__right trans-row">
-                  <span class="amount">0.0085 BTC</span>
-                  <button>Waiting</button>
-                </div>
-              </div>
-              <div class="trans-row trans-item">
-                <div class="trans-row__left trans-row">
-                  <span>AM 01:16</span>
-                  <span>24 dec 2018</span>
-                  <img class="trans-currency" src="/public/icons/ellipse.svg" alt="currency" />
-                </div>
-                <div class="trans-row__center trans-row">
-                  <div class="trans_waiting"></div>
-                  <span class="trans-id">74EKRJMXkhKDR5dj34578fgirwE22sfg</span>
-                </div>
-                <div class="trans-row__right trans-row">
-                  <span class="amount">0.0085 BTC</span>
-                  <button>Waiting</button>
-                </div>
-              </div>
-              <div class="trans-row trans-item">
-                <div class="trans-row__left trans-row">
-                  <span>AM 01:16</span>
-                  <span>24 dec 2018</span>
-                  <img class="trans-currency" src="/public/icons/ellipse.svg" alt="currency" />
-                </div>
-                <div class="trans-row__center trans-row">
-                  <div class="trans_waiting trans-error"></div>
-                  <span class="trans-id">74EKRJMXkhKDR5dj34578fgirwE22sfg</span>
-                </div>
-                <div class="trans-row__right trans-row">
-                  <span class="amount">0.0085 BTC</span>
-                  <button class="btn-error">Error</button>
-                </div>
-              </div>
-              <div class="trans-row trans-item">
-                <div class="trans-row__left trans-row">
-                  <span>AM 01:16</span>
-                  <span>24 dec 2018</span>
-                  <img class="trans-currency" src="/public/icons/ellipse.svg" alt="currency" />
-                </div>
-                <div class="trans-row__center trans-row">
-                  <div class="trans_waiting"></div>
-                  <span class="trans-id">74EKRJMXkhKDR5dj34578fgirwE22sfg</span>
-                </div>
-                <div class="trans-row__right trans-row">
-                  <span class="amount">0.0085 BTC</span>
-                  <button>Waiting</button>
-                </div>
-              </div>
-              <div class="trans-row trans-item">
-                <div class="trans-row__left trans-row">
-                  <span>AM 01:16</span>
-                  <span>24 dec 2018</span>
-                  <img class="trans-currency" src="/public/icons/ellipse.svg" alt="currency" />
-                </div>
-                <div class="trans-row__center trans-row">
-                  <div class="trans_waiting"></div>
-                  <span class="trans-id">74EKRJMXkhKDR5dj34578fgirwE22sfg</span>
-                </div>
-                <div class="trans-row__right trans-row">
-                  <span class="amount">0.0085 BTC</span>
-                  <button>Waiting</button>
-                </div>
-              </div>
-            </div>
-            <div class="after"></div>
-          </div>
-        </div>
+					<!-- ============= -->
+					<!-- Bottom Container -->
+					<div class="bottom__container dashboard-container">
+						<div class="bottom-row"></div>
+						<div class="bottom-row bottom-news">
+							<h3>Recent News</h3>
+							<table class="bottom-news__table">
+								<tr>
+									<td class="bottom-news__time">19 hours ago</td>
+									<td class="bottom-news__title">
+										SEC Fails to Show Court Blockvest Tokens Are Securities
+									</td>
+								</tr>
+								<tr>
+									<td class="bottom-news__time">23 hours ago</td>
+									<td class="bottom-news__title">
+										Report: Bitcoin Mining Doesn’t Fuel Climate Change, It Benefits the Global
+										Economy
+									</td>
+								</tr>
+								<tr>
+									<td class="bottom-news__time">11.22, 15:27</td>
+									<td class="bottom-news__title">
+										A Look at the Multi-Currency Encrypted Messaging App ‘Chat.Chat’
+									</td>
+								</tr>
+								<tr>
+									<td class="bottom-news__time">11.21, 11:43</td>
+									<td class="bottom-news__title">
+										Four Ways to Commemorate Bitcoin’s 10th Anniversary
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
 
-        <div class="container" id="cont-exchange"></div>
-        <div class="container" id="cont-market"></div>
-      </main>
-    </div>
-    <script type="module" src="/main.js"></script>
-  </body>
+			<div class="container" id="cont-wallets"></div>
+
+			<div class="container" id="cont-transactions">
+				<div class="trans-title trans-row">
+					<h2>Transactions</h2>
+					<button>Export History</button>
+				</div>
+				<div class="trans-wrapper">
+					<div class="trans-total trans-row">
+						<p>Total 1,543</p>
+						<div class="trans-btns trans-row">
+							<button class="trans-btn_active">All</button>
+							<button>Send</button>
+							<button>Recent</button>
+						</div>
+					</div>
+					<div class="trans-column">
+						<div class="trans-row trans-item">
+							<div class="trans-row__left trans-row">
+								<span>AM 01:16</span>
+								<span>24 dec 2018</span>
+								<img class="trans-currency" src="/public/icons/ellipse.svg" alt="currency" />
+							</div>
+							<div class="trans-row__center trans-row">
+								<div class="trans_waiting"></div>
+								<span class="trans-id">74EKRJMXkhKDR5dj34578fgirwE22sfg</span>
+							</div>
+							<div class="trans-row__right trans-row">
+								<span class="amount">0.0085 BTC</span>
+								<button class="btn-complete">Complete</button>
+							</div>
+						</div>
+						<div class="trans-row trans-item">
+							<div class="trans-row__left trans-row">
+								<span>AM 01:16</span>
+								<span>24 dec 2018</span>
+								<img class="trans-currency" src="/public/icons/ellipse.svg" alt="currency" />
+							</div>
+							<div class="trans-row__center trans-row">
+								<div class="trans_waiting"></div>
+								<span class="trans-id">74EKRJMXkhKDR5dj34578fgirwE22sfg</span>
+							</div>
+							<div class="trans-row__right trans-row">
+								<span class="amount">0.0085 BTC</span>
+								<button class="btn-complete">Complete</button>
+							</div>
+						</div>
+						<div class="trans-row trans-item">
+							<div class="trans-row__left trans-row">
+								<span>AM 01:16</span>
+								<span>24 dec 2018</span>
+								<img class="trans-currency" src="/public/icons/ellipse.svg" alt="currency" />
+							</div>
+							<div class="trans-row__center trans-row">
+								<div class="trans_waiting"></div>
+								<span class="trans-id">74EKRJMXkhKDR5dj34578fgirwE22sfg</span>
+							</div>
+							<div class="trans-row__right trans-row">
+								<span class="amount">0.0085 BTC</span>
+								<button class="btn-complete">Complete</button>
+							</div>
+						</div>
+						<div class="trans-row trans-item">
+							<div class="trans-row__left trans-row">
+								<span>AM 01:16</span>
+								<span>24 dec 2018</span>
+								<img class="trans-currency" src="/public/icons/ellipse.svg" alt="currency" />
+							</div>
+							<div class="trans-row__center trans-row">
+								<div class="trans_waiting trans-error"></div>
+								<span class="trans-id">74EKRJMXkhKDR5dj34578fgirwE22sfg</span>
+							</div>
+							<div class="trans-row__right trans-row">
+								<span class="amount">0.0085 BTC</span>
+								<button class="btn-error">Error</button>
+							</div>
+						</div>
+						<div class="trans-row trans-item">
+							<div class="trans-row__left trans-row">
+								<span>AM 01:16</span>
+								<span>24 dec 2018</span>
+								<img class="trans-currency" src="/public/icons/ellipse.svg" alt="currency" />
+							</div>
+							<div class="trans-row__center trans-row">
+								<div class="trans_waiting"></div>
+								<span class="trans-id">74EKRJMXkhKDR5dj34578fgirwE22sfg</span>
+							</div>
+							<div class="trans-row__right trans-row">
+								<span class="amount">0.0085 BTC</span>
+								<button>Waiting</button>
+							</div>
+						</div>
+						<div class="trans-row trans-item">
+							<div class="trans-row__left trans-row">
+								<span>AM 01:16</span>
+								<span>24 dec 2018</span>
+								<img class="trans-currency" src="/public/icons/ellipse.svg" alt="currency" />
+							</div>
+							<div class="trans-row__center trans-row">
+								<div class="trans_waiting"></div>
+								<span class="trans-id">74EKRJMXkhKDR5dj34578fgirwE22sfg</span>
+							</div>
+							<div class="trans-row__right trans-row">
+								<span class="amount">0.0085 BTC</span>
+								<button>Waiting</button>
+							</div>
+						</div>
+						<div class="trans-row trans-item">
+							<div class="trans-row__left trans-row">
+								<span>AM 01:16</span>
+								<span>24 dec 2018</span>
+								<img class="trans-currency" src="/public/icons/ellipse.svg" alt="currency" />
+							</div>
+							<div class="trans-row__center trans-row">
+								<div class="trans_waiting"></div>
+								<span class="trans-id">74EKRJMXkhKDR5dj34578fgirwE22sfg</span>
+							</div>
+							<div class="trans-row__right trans-row">
+								<span class="amount">0.0085 BTC</span>
+								<button>Waiting</button>
+							</div>
+						</div>
+						<div class="trans-row trans-item">
+							<div class="trans-row__left trans-row">
+								<span>AM 01:16</span>
+								<span>24 dec 2018</span>
+								<img class="trans-currency" src="/public/icons/ellipse.svg" alt="currency" />
+							</div>
+							<div class="trans-row__center trans-row">
+								<div class="trans_waiting trans-error"></div>
+								<span class="trans-id">74EKRJMXkhKDR5dj34578fgirwE22sfg</span>
+							</div>
+							<div class="trans-row__right trans-row">
+								<span class="amount">0.0085 BTC</span>
+								<button class="btn-error">Error</button>
+							</div>
+						</div>
+						<div class="trans-row trans-item">
+							<div class="trans-row__left trans-row">
+								<span>AM 01:16</span>
+								<span>24 dec 2018</span>
+								<img class="trans-currency" src="/public/icons/ellipse.svg" alt="currency" />
+							</div>
+							<div class="trans-row__center trans-row">
+								<div class="trans_waiting"></div>
+								<span class="trans-id">74EKRJMXkhKDR5dj34578fgirwE22sfg</span>
+							</div>
+							<div class="trans-row__right trans-row">
+								<span class="amount">0.0085 BTC</span>
+								<button>Waiting</button>
+							</div>
+						</div>
+						<div class="trans-row trans-item">
+							<div class="trans-row__left trans-row">
+								<span>AM 01:16</span>
+								<span>24 dec 2018</span>
+								<img class="trans-currency" src="/public/icons/ellipse.svg" alt="currency" />
+							</div>
+							<div class="trans-row__center trans-row">
+								<div class="trans_waiting"></div>
+								<span class="trans-id">74EKRJMXkhKDR5dj34578fgirwE22sfg</span>
+							</div>
+							<div class="trans-row__right trans-row">
+								<span class="amount">0.0085 BTC</span>
+								<button>Waiting</button>
+							</div>
+						</div>
+					</div>
+					<div class="after"></div>
+				</div>
+			</div>
+
+			<div class="container" id="cont-exchange"></div>
+			<div class="container" id="cont-market">
+				<div class="market-title">
+					<h2>Market</h2>
+				</div>
+				<div class="market-wrapper">
+					<div class="market_item">
+						ITEM
+					</div>
+					<div class="market_item">
+						ITEM
+					</div>
+					<div class="market_item">
+						ITEM
+					</div>
+					<div class="market_item">
+						ITEM
+					</div>
+					<div class="market_item">
+						ITEM
+					</div>
+					<div class="market_item">
+						ITEM
+					</div>
+					<div class="market_item">
+						ITEM
+					</div>
+					<div class="market_item">
+						ITEM
+					</div>
+					<div class="market_item">
+						ITEM
+					</div>
+				</div>
+			</div>
+		</main>
+	</div>
+	<script type="module" src="/main.js"></script>
+</body>
+
 </html>
