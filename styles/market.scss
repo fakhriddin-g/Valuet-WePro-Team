@@ -10,6 +10,17 @@
     grid-auto-rows: 179px;
     grid-gap: 24px;
 
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0px;
+        left: 0;
+        width: 100%;
+        height: 132px;
+        border-radius: 8px;
+        background: linear-gradient(180deg, rgba(15, 11, 56, 0.00) 8.84%, #0F0B38 100%);
+    }
+
     .market_item {
         display: flex;
         align-items: center;
@@ -24,7 +35,8 @@
     .market-wrapper {
         max-height: 450px;
         overflow-y: scroll;
-        &::-webkit-scrollbar{
+
+        &::-webkit-scrollbar {
             display: none;
         }
     }
