@@ -21,7 +21,7 @@ tabs.forEach(btn => {
 		conts.forEach(cont => cont.classList.add('hide'))
 
 		let cont = document.querySelector(`#cont-${key}`)
-
+		console.log(cont);
 		cont.classList.remove('hide')
 	}
 })
@@ -37,14 +37,15 @@ if (trans_column.childElementCount <= 4) {
 
 
 trans_column.onscroll = () => {
-	trans_smoke.style.display = "block"
+	trans_smoke.style.bottom = "0px"
 }
 
 trans_smoke.onclick = () => {
 	trans_column.scrollTop = trans_column.scrollHeight;
 	setTimeout(() => {
-		trans_smoke.style.display = "none"
-	}, 100);
+		trans_smoke.style.bottom = "-100px"
+	}, 0);
+
 }
 
 let filterBtns = document.querySelectorAll('.trans-btns button')
