@@ -307,6 +307,7 @@ aside {
 .container {
     width: 95%;
     margin: 0 auto;
+    overflow:auto;
 }
 
 
@@ -342,24 +343,11 @@ main {
     .container {
         position: relative;
         height: 100%;
-        background-color: red;
         transition: .5s ease;
         right: 0%;
         opacity: 1;
     }
 
-    #cont-wallets {
-        background-color: yellow;
-    }
-    #cont-transactions {
-        background-color: green;
-    }
-    #cont-exchange {
-        background-color: purple;
-    }
-    #cont-market {
-        background-color: pink;
-    }
 
     .hide {
         position: absolute;
