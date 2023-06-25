@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const baseURL = "http://localhost:5050"
+const baseURL = import.meta.env.VITE_BASE_URL
 
 const enums = {
     get: "get",
@@ -11,22 +11,22 @@ const enums = {
 }
 
 export const useHttp = () => {
-     const request = async (url, method, body = null) => {
-        if(!enums[method]) {
+    const request = async (url, method, body = null) => {
+        if (!enums[method]) {
             throw new Error('Axios have not provide method ' + method)
         }
 
         try {
             const res = await axios[method](baseURL + url, body)
 
-            if(res.status === 200 || res.status === 201) {
+            if (res.status === 200 || res.status === 201) {
                 return res.data
             }
-        } catch(e) {
+        } catch (e) {
 
             return e.response.status
         }
     }
 
-    return {request}
+    return { request }
 }

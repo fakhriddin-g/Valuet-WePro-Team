@@ -35,16 +35,21 @@ if (trans_column.childElementCount <= 4) {
 	trans_smoke.style.display = "none"
 }
 
-
 trans_column.onscroll = () => {
-	trans_smoke.style.bottom = "0px"
+
+	if (trans_column.scrollTop <= 950) {
+		trans_smoke.style.bottom = "0px"
+	} else {
+		trans_smoke.style.bottom = "-100px"
+	}
+
+	console.log(trans_column.scrollTop);
+
 }
 
 trans_smoke.onclick = () => {
+
 	trans_column.scrollTop = trans_column.scrollHeight;
-	setTimeout(() => {
-		trans_smoke.style.bottom = "-100px"
-	}, 0);
 
 }
 
