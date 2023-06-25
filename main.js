@@ -27,7 +27,7 @@ tabs.forEach(btn => {
 })
 
 let trans_column = document.querySelector(".trans-column")
-let trans_smoke = document.querySelector(".trans-wrapper .after")
+let trans_smoke = document.querySelector(".trans-wrapper .trans-after")
 
 reloadTransactions(transactions, trans_column)
 
