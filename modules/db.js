@@ -9,7 +9,7 @@ export let transactions = [
             "time": "AM 01:16",
             "day": "24 dec 2018"
         }
-    },
+    }, 
     // {
     //     "id": "74EKRJMXkhKDR5dj34578fgirwE22sfg",
     //     "currency": "BTC",
