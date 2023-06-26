@@ -6,6 +6,7 @@
 
     &__left {
         gap: 33px;
+        min-width: 234px;
 
         .trans-currency {
             width: 32px;
@@ -19,6 +20,7 @@
     &__center {
         gap: 24px;
         align-items: end;
+        min-width: 300px;
 
         .trans_waiting {
             width: 14px;
@@ -39,6 +41,7 @@
 
     &__right {
         gap: 24px;
+        min-width: 183px;
 
         button {
             height: 30px;
@@ -211,90 +214,111 @@
     backdrop-filter: blur(5px);
     z-index: 1;
     display: none;
+    opacity: 0;
+    transition: .5s linear;
+}
 
-    .trans-modal {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        translate: -50% -50%;
-        border-radius: 8px;
-        background: linear-gradient(180deg, #1E1156 70%, rgba(28, 35, 64, 0.00) 100%);
-        box-shadow: 0px 25px 25px 0px rgba(0, 3, 32, 0.50);
-        padding: 82px;
+.trans-modal {
+    z-index: 2;
+    position: fixed;
+    top: 50%;
+    left: -30%;
+    translate: -50% -50%;
+    border-radius: 8px;
+    background: linear-gradient(180deg, #1E1156 70%, rgba(28, 35, 64, 0.00) 100%);
+    box-shadow: 0px 25px 25px 0px rgba(0, 3, 32, 0.50);
+    padding: 82px;
+    transition: 1s ease;
 
-        h2 {
-            text-align: center;
-            color: #FFF;
-            text-shadow: 0px 4px 20px 0px rgba(1, 143, 255, 0.15);
-            font-size: 36px;
+    h2 {
+        text-align: center;
+        color: #FFF;
+        text-shadow: 0px 4px 20px 0px rgba(1, 143, 255, 0.15);
+        font-size: 36px;
+        font-family: Roboto;
+        font-weight: 500;
+        margin-bottom: 62px;
+    }
+
+    form {
+        flex-shrink: 0;
+        flex-direction: column;
+        justify-content: center;
+        gap: 30px;
+
+        input {
+            width: 315px;
+            padding: 21px 16px 21px 67px;
+            border-radius: 8px;
+            background: #32395E;
+            color: #616A8B;
+            font-size: 16px;
             font-family: Roboto;
-            font-weight: 500;
-            margin-bottom: 62px;
-        }
+            transition: .3s ease;
+            position: relative;
+            background-repeat: no-repeat;
 
-        form {
-            flex-shrink: 0;
-            flex-direction: column;
-            justify-content: center;
-            gap: 30px;
-
-            input {
-                padding: 21px 67px;
-                border-radius: 8px;
-                background: #32395E;
-                color: #616A8B;
-                font-size: 16px;
-                font-family: Roboto;
-                transition: .3s ease;
-
-                &:focus {
-                    box-shadow: 0px 4px 20px 0px rgba(1, 143, 255, 0.15);
-                }
+            &:focus {
+                box-shadow: 0px 4px 20px 0px rgba(1, 143, 255, 0.15);
             }
 
-            button {
-                padding: 12px 22px;
+
+        }
+
+        .inp-sum {
+            background-image: url("/public/icons/ellipse.svg"), url("/public/icons/cash.svg");
+            background-position: 18px center, 27px center;
+            background-size: 32px, 14px;
+        }
+
+        .inp-currency {
+            background-image: url("/public/icons/ellipse.svg"), url("/public/icons/bitcoin.svg");
+            background-position: 18px center, 27px center;
+            background-size: 32px, 14px;
+        }
+
+        button {
+            padding: 12px 22px;
+            border-radius: 8px;
+            background: linear-gradient(51deg, #2F3453 0%, #242845 97.79%);
+            box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.15);
+            color: #949EC0;
+            font-size: 16px;
+            font-family: Roboto;
+            font-weight: 700;
+            transition: .3s ease;
+            position: relative;
+            overflow: hidden;
+
+            span {
+                position: relative;
+                z-index: 2;
+            }
+
+            .btn-after {
+                position: absolute;
+                top: 0%;
+                left: -101%;
+                width: 100%;
+                height: 100%;
                 border-radius: 8px;
-                background: linear-gradient(51deg, #2F3453 0%, #242845 97.79%);
+                background: linear-gradient(292deg, #3887FE 0%, #3BA0FF 49.72%, #5FB2FF 100%);
                 box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.15);
-                color: #949EC0;
+                color: #FFF;
                 font-size: 16px;
-                font-family: Roboto;
                 font-weight: 700;
                 transition: .3s ease;
-                position: relative;
-                overflow: hidden;
+            }
 
-                span {
-                    position: relative;
-                    z-index: 2;
-                }
+            &:hover {
+                color: #fff;
 
                 .btn-after {
-                    position: absolute;
-                    top: 0%;
-                    left: -100%;
-                    width: 100%;
-                    height: 100%;
-                    border-radius: 8px;
-                    background: linear-gradient(292deg, #3887FE 0%, #3BA0FF 49.72%, #5FB2FF 100%);
-                    box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.15);
-                    color: #FFF;
-                    font-size: 16px;
-                    font-weight: 700;
-                    transition: .3s ease;
+                    left: 0%;
                 }
-
-                &:hover {
-                    color: #fff;
-
-                    .btn-after {
-                        left: 0%;
-                    }
-                }
-
             }
-        }
 
+        }
     }
+
 }

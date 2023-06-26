@@ -290,8 +290,8 @@
 				<div class="trans-title trans-row">
 					<h2>Transactions</h2>
 					<div class="buttons trans-row">
-						<button>Add Transaction</button>
-						<button>Export History</button>
+						<button id="addTransaction">Add Transaction</button>
+						<button id="hystory">Export History</button>
 					</div>
 				</div>
 				<div class="trans-wrapper">
@@ -497,21 +497,23 @@
 		</main>
 	</div>
 
-	<div class="trans-modal_bg">
-
-		<div class="trans-modal">
-			<h2>Add A New Transcation</h2>
-			<form name="addTransaction" class="trans-row">
-				<input type="text" name="currency" placeholder="Currency">
-				<input type="text" name="sum" placeholder="Sum">
-				<button type="submit">
-					<span>ADD</span>
-					<div class="btn-after"></div>
-				</button>
-			</form>
-		</div>
-
+	<div class="trans-modal">
+		<h2>Add A New Transcation</h2>
+		<form name="addTransaction" class="trans-row">
+			<input list="currency-list" class="inp-currency" type="text" name="currency" placeholder="Currency">
+			<datalist id="currency-list"></datalist>
+			<input class="inp-sum" type="number" name="sum" placeholder="Sum">
+			<button type="submit">
+				<span>ADD</span>
+				<div class="btn-after"></div>
+			</button>
+		</form>
 	</div>
+
+	<div class="trans-modal_bg">
+		
+	</div>
+
 
 	<script type="module" src="/main.js"></script>
 </body>

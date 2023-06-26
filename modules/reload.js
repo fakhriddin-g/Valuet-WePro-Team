@@ -1,5 +1,7 @@
 export function reloadTransactions(arr, place) {
+
     place.innerHTML = ""
+
     for (let item of arr) {
 
         let trans_item = document.createElement('div')
@@ -42,7 +44,7 @@ export function reloadTransactions(arr, place) {
         trans_row__right.classList.add("trans-row")
 
         amount.classList.add("amount")
-        amount.innerHTML = item.balance + " " + item.currency
+        amount.innerHTML = item.sum + " " + item.currency
 
         if (item.succes === "false") {
             btn.innerHTML = "Error"
