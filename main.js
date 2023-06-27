@@ -1,6 +1,7 @@
 import { transactions } from "./modules/db"
 import { v4 as uuidv4 } from 'uuid';
 import { reloadTransactions } from "./modules/reload"
+import { useHttp } from "./modules/http.requests";
 
 let conts = document.querySelectorAll('main .container')
 let tabs = document.querySelectorAll("aside p")
@@ -31,16 +32,16 @@ let trans_smoke = document.querySelector(".trans-wrapper .trans-after")
 
 reloadTransactions(transactions, trans_column)
 
-// trans_column.innerHTML = ""
 
-if (trans_column.childElementCount <= 4) {
-	trans_smoke.style.display = "none"
-} else {
-	trans_smoke.style.display = "block"
 
-}
+setTimeout(() => {
+	if (trans_column.childElementCount <= 4) {
+		trans_smoke.style.display = "none"
+	} else {
+		trans_smoke.style.display = "block"
+	}
 
-console.log(trans_column.childElementCount,);
+}, 200);
 
 trans_column.onscroll = () => {
 
@@ -52,20 +53,11 @@ trans_column.onscroll = () => {
 }
 
 trans_smoke.onclick = () => {
-	console.log(trans_column.scrollTop , (trans_column.scrollHeight - 400));
 
 	trans_column.scrollTop = trans_column.scrollHeight;
 
 }
 
-let filterBtns = document.querySelectorAll('.trans-btns button')
-
-filterBtns.forEach(btn => {
-	btn.onclick = () => {
-		filterBtns.forEach(btn => btn.classList.remove("trans-btn_active"))
-		btn.classList.add("trans-btn_active")
-	}
-})
 
 let hystory = document.querySelector(".trans-title #hystory")
 let addTransBtn = document.querySelector(".trans-title #addTransaction")
@@ -84,7 +76,7 @@ addTransBtn.onclick = () => {
 }
 
 hystory.onclick = () => {
-	console.log(transactions);
+	console.log(trans_column);
 }
 
 trans_modal_bg.onclick = () => {
@@ -135,6 +127,10 @@ function setOption(data) {
 let addTransaction = document.forms.addTransaction
 let trans_inputs = document.addTransaction.querySelectorAll("input")
 
+const { request } = useHttp()
+
+request("/transactions/", "get")
+	.then(res => reloadTransactions(res, trans_column))
 
 addTransaction.onsubmit = (e) => {
 	e.preventDefault()
@@ -158,8 +154,9 @@ addTransaction.onsubmit = (e) => {
 			succes: random[Math.floor(Math.random()) * random.length],
 			date: {
 				time: "AM " + new Date().getHours() + ":" + new Date().getMinutes(),
-				day: new Date().getDate() + " dec " + new Date().getFullYear()
-			}
+				day: new Date().getDate() + " jun " + new Date().getFullYear()
+			},
+			img: "bitcoin"
 		}
 
 		let fm = new FormData(addTransaction)
@@ -177,9 +174,20 @@ addTransaction.onsubmit = (e) => {
 
 		console.log(transaction);
 		addTransaction.reset()
-		transactions.push(transaction)
-		reloadTransactions(transactions, trans_column)
 
+		request("/transactions", "post", transaction)
+
+		request("/transactions/", "get")
+			.then(res => reloadTransactions(res, trans_column))
+
+		setTimeout(() => {
+			if (trans_column.childElementCount <= 4) {
+				trans_smoke.style.display = "none"
+			} else {
+				trans_smoke.style.display = "block"
+			}
+
+		}, 200);
 	}
 }
 
@@ -192,3 +200,40 @@ currency_inp.oninput = () => {
 }
 
 
+let filterBtns = document.querySelectorAll('.trans-btns button')
+
+filterBtns.forEach(btn => {
+	btn.onclick = () => {
+		let key = btn.getAttribute("data-select")
+		filterBtns.forEach(btn => btn.classList.remove("trans-btn_active"))
+		btn.classList.add("trans-btn_active")
+		// console.log(key);
+		if (key === "All") {
+			request("/transactions", "get")
+				.then(res => reloadTransactions(res, trans_column))
+
+			setTimeout(() => {
+				if (trans_column.childElementCount <= 4) {
+					trans_smoke.style.display = "none"
+				} else {
+					trans_smoke.style.display = "block"
+				}
+
+			}, 200);
+
+		} else {
+
+			request("/transactions?succes=" + key, "get")
+				.then(res => reloadTransactions(res, trans_column))
+
+			setTimeout(() => {
+				if (trans_column.childElementCount <= 4) {
+					trans_smoke.style.display = "none"
+				} else {
+					trans_smoke.style.display = "block"
+				}
+
+			}, 200);
+		}
+	}
+})
