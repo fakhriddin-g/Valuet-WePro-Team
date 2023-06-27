@@ -41,7 +41,7 @@ setTimeout(() => {
 		trans_smoke.style.display = "block"
 	}
 
-}, 200);
+}, 300);
 
 trans_column.onscroll = () => {
 
@@ -187,7 +187,7 @@ addTransaction.onsubmit = (e) => {
 				trans_smoke.style.display = "block"
 			}
 
-		}, 200);
+		}, 300);
 	}
 }
 
@@ -219,7 +219,7 @@ filterBtns.forEach(btn => {
 					trans_smoke.style.display = "block"
 				}
 
-			}, 200);
+			}, 300);
 
 		} else {
 
@@ -233,7 +233,7 @@ filterBtns.forEach(btn => {
 					trans_smoke.style.display = "block"
 				}
 
-			}, 200);
+			}, 300);
 		}
 	}
 })
