@@ -1,7 +1,8 @@
-import { transactions } from "./modules/db"
+import { overview, transactions } from "./modules/db"
 import { v4 as uuidv4 } from 'uuid';
 import { reloadMiniTransactions, reloadTransactions } from "./modules/reload"
 import { useHttp } from "./modules/http.requests";
+import { wallets } from "./modules/ui";
 
 let conts = document.querySelectorAll('main .container')
 let tabs = document.querySelectorAll("aside p")
@@ -26,6 +27,9 @@ tabs.forEach(btn => {
       cont.classList.remove('hide')
    }
 })
+
+// Overview
+wallets(overview)
 
 let trans_column = document.querySelector(".trans-column")
 let trans_smoke = document.querySelector(".trans-wrapper .trans-after")
