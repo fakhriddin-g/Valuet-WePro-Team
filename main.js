@@ -1,5 +1,6 @@
-import { transactions } from "./modules/db"
+import { overview, transactions } from "./modules/db"
 import { reloadTransactions } from "./modules/reload"
+import { wallets } from "./modules/ui"
 
 let conts = document.querySelectorAll('main .container')
 let tabs = document.querySelectorAll("aside p")
@@ -62,3 +63,5 @@ let hystory = document.querySelector(".trans-title button")
 hystory.onclick = () => {
 	console.log(transactions);
 }
+
+wallets(overview)
