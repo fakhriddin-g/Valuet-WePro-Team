@@ -175,3 +175,25 @@ export let cards = [
       id:3
    },
 ]
+export let overview = [
+  {
+    "crypto": "Bitcoin",
+    "cryptoCurrency": "BTC",
+    "walletContentPriceCrypto": "600",
+    "walletContentPriceUSD": "30,000,000",
+    "currencyBox": [
+      {
+        "totalCurrency": "$1 200 = 0,074 BTC",
+        "cryptoCurrency": "1 BTC = $6 542, 35"
+      },
+      {
+        "totalCurrency": "$1 200 = 0,074 BTC",
+        "cryptoCurrency": "1 BTC = $6 542, 35"
+      },
+      {
+        "totalCurrency": "$1 200 = 0,074 BTC",
+        "cryptoCurrency": "1 BTC = $6 542, 35"
+      },
+    ]
+  }
+]
