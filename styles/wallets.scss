@@ -85,7 +85,7 @@ $oranBlack: #ed6480;
       align-items: center;
       gap: 24px;
       background: linear-gradient(180deg, rgba(27, 18, 78, 0.2) 0%, #0f0b38 93.37%);
-      padding: 21px;
+      // padding: 21px;
    }
    &__top-box-cards {
       display: flex;
@@ -166,8 +166,29 @@ $oranBlack: #ed6480;
       gap: 24px;
    }
 }
+.effect-chart {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   gap: 8px;
+   span{
+      @include RegularFont($colorTwo);
+      font-size:16px;
+   }
+   p{
+      @include BoldFont($white);
+      font-size: 18px;
+   }
+}
 
 .wl-chard {
+   &__effect {
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      translate: -50% 0;
+   }
    &__nav {
       ul {
          li {
@@ -202,9 +223,7 @@ $oranBlack: #ed6480;
          }
       }
    }
-   &__circle {
-      width: 105px;
-      height: 105px;
+   &__circle {position: relative;
    }
 }
 
@@ -255,6 +274,8 @@ $oranBlack: #ed6480;
          gap: 12px;
          width: 100%;
          max-width: 600px;
+
+         border:1px solid #1288e8;
          &__left {
             @include SemiboldFont($colorTwo);
             font-size: 14px;
@@ -267,7 +288,9 @@ $oranBlack: #ed6480;
             justify-content: space-between;
             align-items: center;
          }
-
+         &__box{
+            display: flex;
+         }
          &__text-box {
             display: flex;
             flex-direction: column;
@@ -326,13 +349,8 @@ $oranBlack: #ed6480;
       justify-content: center;
    }
 }
-@media (max-width: 400px) {
-   .wallets__chard {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 24px;
-      background: linear-gradient(180deg, rgba(27, 18, 78, 0.2) 0%, #0f0b38 93.37%);
-      padding: 12px;
-   }
-}
+// @media (max-width: 400px) {
+//    .wallets__chard {
+//       padding: 12px;
+//    }
+// }

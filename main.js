@@ -1,7 +1,8 @@
-import { overview, transactions } from "./modules/db";
-import { v4 as uuidv4 } from "uuid";
-import { reloadMiniTransactions, reloadTransactions } from "./modules/reload";
+import { overview, transactions } from "./modules/db"
+import { v4 as uuidv4 } from 'uuid';
+import { reloadMiniTransactions, reloadTransactions } from "./modules/reload"
 import { useHttp } from "./modules/http.requests";
+import { Chart } from "chart.js";
 import { wallets } from "./modules/ui";
 
 const { request } = useHttp();
@@ -271,20 +272,22 @@ filterBtns.forEach((btn) => {
   };
 });
 // wallets
-let items = document.querySelectorAll(".wallets__top-box-cards .cards-slide");
-let items_box = document.querySelector(".right-block__box");
-let effect = document.querySelector(".effect");
-items.forEach((item) => {
-  item.onmouseover = () => {
-    item.classList.add("hover");
-  };
-  item.onmouseout = () => {
-    item.classList.remove("hover");
-  };
-});
-let obj = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-reloadMiniTransactions(obj, items_box);
-effect = document.querySelector(".effect");
+let items = document.querySelectorAll('.wallets__top-box-cards .cards-slide');
+let items_box = document.querySelector('.right-block__box');
+let effect = document.querySelector('.effect');
+items.forEach(item => {
+   item.onmouseover = () => {
+      item.classList.add('hover')
+   }
+   item.onmouseout = () => {
+      item.classList.remove('hover')
+   }
+})
+let obj = [
+   1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+]
+reloadMiniTransactions(obj, items_box)
+effect = document.querySelector('.effect');
 
 setTimeout(() => {
   if (items_box.childElementCount <= 4) {
@@ -295,14 +298,16 @@ setTimeout(() => {
 }, 240);
 
 items_box.onscroll = () => {
-  if (items_box.scrollTop < items_box.scrollHeight - 241) {
-    effect.style.opacity = "1";
-  } else {
-    effect.style.opacity = "0";
-  }
-};
-// console.log(effect);
+   if (items_box.scrollTop < (items_box.scrollHeight - 241)) {
+      effect.style.opacity = '1'
+   } else {
+         effect.style.opacity = '0'
+   }
+}
+console.log(effect);
 
 effect.onclick = () => {
-  items_box.scrollTop = items_box.scrollHeight;
-};
+   
+   items_box.scrollTop = items_box.scrollHeight;
+
+}
