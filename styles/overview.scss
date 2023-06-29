@@ -292,3 +292,40 @@ tbody {
   flex-direction: column;
   gap: 12px;
 }
+
+.overview-modal {
+  display: none;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  background: #3e4667;
+  padding: 200px 300px;
+}
+
+.overview-modal h2 {
+  font-size: 24px;
+}
+
+.overview-modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.overview-modal form input {
+  outline: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.add-widget {
+  background: #000;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  border-radius: 5px;
+}

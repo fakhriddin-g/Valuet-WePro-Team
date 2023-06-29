@@ -24,7 +24,7 @@ export const useHttp = () => {
             }
         } catch (e) {
 
-            return e.response.status
+            return e
         }
     }
 
