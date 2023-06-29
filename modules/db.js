@@ -155,3 +155,23 @@ export let transactions = [
    //  },
 
 ]
+export let cards = [
+   {
+      currens: "USD",
+      balance: "2000",
+      name: "Visa",
+      id:1,
+   },
+   {
+      currens: "USD",
+      balance: "4000",
+      name: "MasterCard",
+      id:2,
+   }, 
+   {
+      currens: "USD",
+      balance: "6000",
+      name: "Mir",
+      id:3
+   },
+]

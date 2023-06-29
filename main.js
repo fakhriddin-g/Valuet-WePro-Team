@@ -1,7 +1,8 @@
-import { transactions } from "./modules/db"
+import { cards, transactions } from "./modules/db"
 import { v4 as uuidv4 } from 'uuid';
-import { reloadMiniTransactions, reloadTransactions } from "./modules/reload"
+import { reloadCard, reloadMiniTransactions, reloadTransactions } from "./modules/reload"
 import { useHttp } from "./modules/http.requests";
+import { Chart } from "chart.js";
 
 let conts = document.querySelectorAll('main .container')
 let tabs = document.querySelectorAll("aside p")
@@ -238,9 +239,23 @@ filterBtns.forEach(btn => {
    }
 })
 // wallets
-let items = document.querySelectorAll('.wallets__top-box-cards .cards-slide');
+let box = document.querySelector('.wallets__top-box-cards');
 let items_box = document.querySelector('.right-block__box');
+const ctx = document.getElementById('wl-chard__circle-chart');
+let total_p = document.querySelector('.effect-chart p')
+let [data , total] = reloadCard(cards, box);
+new Chart(ctx, {
+   type: 'doughnut',
+   data: data,
+   options:{
+      cutoutPercentage:75
+   }
+});
+total_p.innerText = `${total}$`
+
 let effect = document.querySelector('.effect');
+let items = document.querySelectorAll('.wallets__top-box-cards .cards-slide');
+
 items.forEach(item => {
    item.onmouseover = () => {
       item.classList.add('hover')
@@ -268,13 +283,13 @@ items_box.onscroll = () => {
    if (items_box.scrollTop < (items_box.scrollHeight - 241)) {
       effect.style.opacity = '1'
    } else {
-         effect.style.opacity = '0'
+      effect.style.opacity = '0'
    }
 }
-console.log(effect);
 
 effect.onclick = () => {
-   
+
    items_box.scrollTop = items_box.scrollHeight;
 
 }
+
