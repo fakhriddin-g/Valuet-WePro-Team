@@ -284,7 +284,7 @@ setTimeout(() => {
 }, 240);
 
 items_box.onscroll = () => {
-   if (items_box.scrollTop < (items_box.scrollHeight - 241)) {
+   if (items_box.scrollTop < (items_box.scrollHeight - 261)) {
       effect.style.opacity = '1'
    } else {
       effect.style.opacity = '0'
