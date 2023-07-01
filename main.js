@@ -10,12 +10,16 @@ import {
    useHttp
 } from "./modules/http.requests";
 import {
-   Chart
+   Chart,
+   registerables
 } from 'chart.js'
 import {
    wallets
 } from "./modules/ui";
 import axios from 'axios'
+
+await Chart.register(...registerables)
+
 
 const {request} = useHttp();
 
