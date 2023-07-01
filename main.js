@@ -18,8 +18,9 @@ import {
 } from "./modules/ui";
 import axios from 'axios'
 
-await Chart.register(...registerables)
-
+if(Chart) {
+   Chart.register(...registerables)
+}
 
 const {request} = useHttp();
 
