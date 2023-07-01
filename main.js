@@ -36,7 +36,7 @@ conts.forEach((cont, idx) => {
 
 tabs.forEach((btn) => {
    let key = btn.id;
-   btn.style.backgroundImage = `url("/public/icons/${key}.svg")`;
+   btn.style.backgroundImage = `url("/icons/${key}.svg")`;
 
    btn.onclick = () => {
       tabs.forEach(btn => btn.classList.remove("active_link"))
