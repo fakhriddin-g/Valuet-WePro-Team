@@ -3,36 +3,14 @@
   "transactions": [
     {
       "id": "99be5ead-3900-4cd5-910e-2a3b71b9ef07",
-      "succes": "Waiting",
+      "succes": "true",
       "date": {
         "time": "AM 12:9",
         "day": "27 dec 2023"
       },
       "img": "bitcoin",
       "currency": "BTC",
-      "sum": "320000"
-    },
-    {
-      "id": "768f1778-7010-49ad-8cbb-6a5a7526c7a9",
-      "succes": "false",
-      "date": {
-        "time": "AM 12:10",
-        "day": "27 dec 2023"
-      },
-      "img": "bitcoin",
-      "currency": "132",
-      "sum": "123"
-    },
-    {
-      "id": "8397ae8a-3013-4a7f-8177-0830d04b4e1c",
-      "succes": "Waiting",
-      "date": {
-        "time": "AM 12:10",
-        "day": "27 dec 2023"
-      },
-      "img": "bitcoin",
-      "currency": "123",
-      "sum": "123"
+      "sum": "20000"
     },
     {
       "id": "5127e545-a13d-4627-b208-c3ab7830fd45",
@@ -46,19 +24,8 @@
       "sum": "123"
     },
     {
-      "id": "6032d074-eb6d-4c44-af69-193b92b4fd74",
-      "succes": "Waiting",
-      "date": {
-        "time": "AM 12:14",
-        "day": "27 dec 2023"
-      },
-      "img": "bitcoin",
-      "currency": "w",
-      "sum": "12"
-    },
-    {
       "id": "5611ea35-10c8-4bef-bf26-7900a1b5de21",
-      "succes": "Waiting",
+      "succes": "false",
       "date": {
         "time": "AM 12:39",
         "day": "27 jun 2023"
@@ -66,6 +33,94 @@
       "img": "bitcoin",
       "currency": "BTC",
       "sum": "321"
+    },
+    {
+      "id": "fad10156-921f-4c9a-944e-6dc907b7428f",
+      "succes": "false",
+      "date": {
+        "time": "AM 15:16",
+        "day": "28 jun 2023"
+      },
+      "img": "bitcoin",
+      "currency": "BTC",
+      "sum": "20000"
+    },
+    {
+      "id": "d05d62dd-5c3c-459b-85c3-02e1f381e369",
+      "succes": "Waiting",
+      "date": {
+        "time": "AM 15:43",
+        "day": "28 jun 2023"
+      },
+      "img": "bitcoin",
+      "currency": "BTC",
+      "sum": "32100"
+    },
+    {
+      "id": "ce37da10-0d91-4610-a090-9ce382881031",
+      "succes": "Waiting",
+      "date": {
+        "time": "AM 16:0",
+        "day": "28 jun 2023"
+      },
+      "img": "bitcoin",
+      "currency": "BTC",
+      "sum": "32000"
+    },
+    {
+      "id": "e85ea8d3-d59b-48df-8631-e41eef45a211",
+      "succes": "Waiting",
+      "date": {
+        "time": "AM 16:33",
+        "day": "28 jun 2023"
+      },
+      "img": "bitcoin",
+      "currency": "BTC",
+      "sum": "123"
+    },
+    {
+      "id": "7cf8e0d5-1198-4dea-bea0-da136caa8348",
+      "succes": "Waiting",
+      "date": {
+        "time": "AM 16:37",
+        "day": "28 jun 2023"
+      },
+      "img": "bitcoin",
+      "currency": "BTC",
+      "sum": "32"
+    },
+    {
+      "id": "f9c7b761-4545-4ef1-9ad3-c2e740f6c13b",
+      "succes": "Waiting",
+      "date": {
+        "time": "AM 9:23",
+        "day": "1 jun 2023"
+      },
+      "img": "bitcoin",
+      "currency": "BTC",
+      "sum": "33000"
+    },
+    {
+      "id": "994a17a0-747d-4d6a-9cbd-23a12e476014",
+      "succes": "Waiting",
+      "date": {
+        "time": "AM 9:24",
+        "day": "1 jun 2023"
+      },
+      "img": "bitcoin",
+      "currency": "BTC",
+      "sum": "123"
+    },
+    {
+      "id": "6df96af9-eda7-4b3f-9d46-31166908e73c",
+      "succes": "Waiting",
+      "date": {
+        "time": "AM 9:24",
+        "day": "1 jun 2023"
+      },
+      "img": "bitcoin",
+      "currency": "BTC",
+      "sum": "412"
     }
   ]
 }

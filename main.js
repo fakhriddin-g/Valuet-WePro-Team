@@ -2,9 +2,11 @@ import { transactions } from "./modules/db"
 import { v4 as uuidv4 } from 'uuid';
 import { reloadMiniTransactions, reloadTransactions } from "./modules/reload"
 import { useHttp } from "./modules/http.requests";
+import Chart from 'chart.js/auto';
+
 
 let conts = document.querySelectorAll('main .container')
-let tabs = document.querySelectorAll("aside p")
+let tabs = document.querySelectorAll("aside  p")
 
 conts.forEach((cont, idx) => {
    if (idx !== 0) {
@@ -19,13 +21,17 @@ tabs.forEach(btn => {
    btn.onclick = () => {
       tabs.forEach(btn => btn.classList.remove("active_link"))
       btn.classList.add("active_link")
+      if (key !== "ellipse" && key !== "out") {
 
-      conts.forEach(cont => cont.classList.add('hide'))
+         conts.forEach(cont => cont.classList.add('hide'))
 
-      let cont = document.querySelector(`#cont-${key}`)
-      cont.classList.remove('hide')
+         let cont = document.querySelector(`#cont-${key}`)
+         cont.classList.remove('hide')
+      }
    }
 })
+
+// transcation
 
 let trans_column = document.querySelector(".trans-column")
 let trans_smoke = document.querySelector(".trans-wrapper .trans-after")
@@ -132,6 +138,47 @@ const { request } = useHttp()
 request("/transactions/", "get")
    .then(res => reloadTransactions(res, trans_column))
 
+
+
+let filterBtns = document.querySelectorAll('.trans-btns button')
+let transAll = document.querySelector('.trans-btns #transAll')
+
+filterBtns.forEach(btn => {
+   btn.onclick = () => {
+      let key = btn.getAttribute("data-select")
+      filterBtns.forEach(btn => btn.classList.remove("trans-btn_active"))
+      btn.classList.add("trans-btn_active")
+      // console.log(key);
+      if (key === "All") {
+         request("/transactions", "get")
+            .then(res => reloadTransactions(res, trans_column))
+
+         setTimeout(() => {
+            if (trans_column.childElementCount <= 4) {
+               trans_smoke.style.display = "none"
+            } else {
+               trans_smoke.style.display = "block"
+            }
+
+         }, 300);
+
+      } else {
+
+         request("/transactions?succes=" + key, "get")
+            .then(res => reloadTransactions(res, trans_column))
+
+         setTimeout(() => {
+            if (trans_column.childElementCount <= 4) {
+               trans_smoke.style.display = "none"
+            } else {
+               trans_smoke.style.display = "block"
+            }
+
+         }, 300);
+      }
+   }
+})
+
 addTransaction.onsubmit = (e) => {
    e.preventDefault()
 
@@ -189,6 +236,11 @@ addTransaction.onsubmit = (e) => {
 
       }, 300);
    }
+
+   filterBtns.forEach(btn => {
+      filterBtns.forEach(btn => btn.classList.remove("trans-btn_active"))
+      transAll.classList.add("trans-btn_active")
+   })
 }
 
 let valuts = {
@@ -199,44 +251,56 @@ currency_inp.oninput = () => {
    currency_inp.style.backgroundImage = `url("/public/icons/ellipse.svg"), url("/public/icons/${valuts[currency_inp.value]}.svg")`
 }
 
-
-let filterBtns = document.querySelectorAll('.trans-btns button')
-
-filterBtns.forEach(btn => {
-   btn.onclick = () => {
-      let key = btn.getAttribute("data-select")
-      filterBtns.forEach(btn => btn.classList.remove("trans-btn_active"))
-      btn.classList.add("trans-btn_active")
-      // console.log(key);
-      if (key === "All") {
-         request("/transactions", "get")
-            .then(res => reloadTransactions(res, trans_column))
-
-         setTimeout(() => {
-            if (trans_column.childElementCount <= 4) {
-               trans_smoke.style.display = "none"
-            } else {
-               trans_smoke.style.display = "block"
+// market
+function marketChart(id, type) {
+   const ctx = document.getElementById(id);
+   ctx.height = 47
+   new Chart(ctx, {
+      type: type,
+      data: {
+         labels: [" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+         datasets: [{
+            data: [1, 2, 2, 3, 1, 5, 1, 2, 2, 3, 1, 2],
+            fill: false,
+            pointRadius: 0
+         }]
+      },
+      options: {
+         scales: {
+            x: {
+               display: false
+            },
+            y: {
+               display: false
             }
-
-         }, 300);
-
-      } else {
-
-         request("/transactions?succes=" + key, "get")
-            .then(res => reloadTransactions(res, trans_column))
-
-         setTimeout(() => {
-            if (trans_column.childElementCount <= 4) {
-               trans_smoke.style.display = "none"
-            } else {
-               trans_smoke.style.display = "block"
+         },
+         plugins: {
+            legend: {
+               display: false
             }
-
-         }, 300);
+         },
+         elements: {
+            line: {
+               borderWidth: 3, 
+               borderColor: '#00E8AC',
+               shadowColor: 'rgba(0,0,0,0.2)',
+               shadowBlur: 10 
+            }
+         }
       }
-   }
-})
+   });
+}
+
+marketChart('myChart', "line")
+marketChart('myChart2', "line")
+marketChart('myChart3', "line")
+marketChart('myChart4', "line")
+marketChart('myChart5', "line")
+marketChart('myChart6', "line")
+marketChart('myChart7', "line")
+marketChart('myChart8', "line")
+marketChart('myChart9', "line")
+
 // wallets
 let items = document.querySelectorAll('.wallets__top-box-cards .cards-slide');
 let items_box = document.querySelector('.right-block__box');
@@ -268,13 +332,14 @@ items_box.onscroll = () => {
    if (items_box.scrollTop < (items_box.scrollHeight - 241)) {
       effect.style.opacity = '1'
    } else {
-         effect.style.opacity = '0'
+      effect.style.opacity = '0'
    }
 }
 console.log(effect);
 
 effect.onclick = () => {
-   
+
    items_box.scrollTop = items_box.scrollHeight;
 
 }
+
