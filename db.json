@@ -2,17 +2,17 @@
   "users": [
     {
       "id": 1,
-      "name": "nek1n",
-      "surname": "sef",
-      "email": "amalabdurahmonov427@gmail.com",
-      "password": "1234"
+      "name": "nekin",
+      "surname": "abdu",
+      "email": "amal@gmail.com",
+      "password": "1234Amal"
     },
     {
       "id": 2,
-      "name": "nek1n",
-      "surname": "sef",
-      "email": "amalabdurahmonov427@gmail.com",
-      "password": "1234"
+      "name": "amal",
+      "surname": "abdurah",
+      "email": "amirun@gmail.com",
+      "password": "1234Amirun"
     }
   ],
   "overviews": [],

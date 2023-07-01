@@ -9,6 +9,13 @@ const { request } = useHttp();
 
 let conts = document.querySelectorAll("main .container");
 let tabs = document.querySelectorAll("aside p");
+let outTab = document.querySelector('#out')
+
+
+// outTab.onclick = () => {
+//   location.assign('/auth/index.html/')
+// }
+
 
 conts.forEach((cont, idx) => {
   if (idx !== 0) {
@@ -311,3 +318,5 @@ effect.onclick = () => {
    items_box.scrollTop = items_box.scrollHeight;
 
 }
+
+
