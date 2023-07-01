@@ -8,186 +8,11 @@
       "password": "1234Amal"
     },
     {
-      "id": 2,
-      "name": "amal",
-      "surname": "abdurah",
-      "email": "amirun@gmail.com",
-      "password": "1234Amirun"
-    },
-    {
-      "id": 3,
-      "name": "",
-      "surname": "",
-      "email": "",
-      "password": ""
-    },
-    {
-      "id": 4,
-      "name": "",
-      "surname": "",
-      "email": "",
-      "password": ""
-    },
-    {
-      "id": 5,
-      "name": "",
-      "surname": "",
-      "email": "",
-      "password": ""
-    },
-    {
-      "id": 6,
-      "name": "",
-      "surname": "",
-      "email": "",
-      "password": ""
-    },
-    {
-      "id": 7,
-      "name": "",
-      "surname": "",
-      "email": "",
-      "password": ""
-    },
-    {
-      "id": 8,
-      "name": "",
-      "surname": "",
-      "email": "",
-      "password": ""
-    },
-    {
-      "id": 9,
-      "name": "",
-      "surname": "",
-      "email": "",
-      "password": ""
-    },
-    {
-      "id": 10,
-      "name": "",
-      "surname": "",
-      "email": "",
-      "password": ""
-    },
-    {
-      "id": 11,
-      "name": "",
-      "surname": "",
-      "email": "",
-      "password": ""
-    },
-    {
-      "id": 12,
-      "name": "",
-      "surname": "",
-      "email": "",
-      "password": ""
-    },
-    {
-      "id": 13,
-      "name": "",
-      "surname": "",
-      "email": "",
-      "password": ""
-    },
-    {
-      "id": 14,
-      "name": "",
-      "surname": "",
-      "email": "",
-      "password": ""
-    },
-    {
-      "id": 15,
-      "name": "",
-      "surname": "",
-      "email": "",
-      "password": ""
-    },
-    {
-      "id": 16,
-      "name": "",
-      "surname": "",
-      "email": "",
-      "password": ""
-    },
-    {
-      "id": 17,
-      "name": "",
-      "surname": "",
-      "email": "",
-      "password": ""
-    },
-    {
-      "id": 18,
-      "name": "",
-      "surname": "",
-      "email": "",
-      "password": ""
-    },
-    {
-      "id": 19,
-      "name": "",
-      "surname": "",
-      "email": "",
-      "password": ""
-    },
-    {
-      "id": 23,
-      "name": "",
-      "surname": "",
-      "email": "",
-      "password": ""
-    },
-    {
-      "id": 22,
-      "name": "",
-      "surname": "",
-      "email": "",
-      "password": ""
-    },
-    {
-      "id": 21,
-      "name": "",
-      "surname": "",
-      "email": "",
-      "password": ""
-    },
-    {
-      "id": 24,
-      "name": "",
-      "surname": "",
-      "email": "",
-      "password": ""
-    },
-    {
-      "id": 25,
-      "name": "",
-      "surname": "",
-      "email": "",
-      "password": ""
-    },
-    {
-      "id": 26,
-      "name": "",
-      "surname": "",
-      "email": "",
-      "password": ""
-    },
-    {
-      "id": 27,
-      "name": "",
-      "surname": "",
-      "email": "",
-      "password": ""
-    },
-    {
-      "id": 20,
-      "name": "",
-      "surname": "",
-      "email": "",
-      "password": ""
+      "id": 28,
+      "name": "Daler",
+      "surname": "Sharifkulov",
+      "email": "dsarifkulo021@gmail.com",
+      "password": "1234Daler"
     }
   ],
   "overviews": [
@@ -211,6 +36,27 @@
       "crypto": "Bitcoin",
       "walletContentPriceCrypto": "100",
       "id": 1
+    },
+    {
+      "cryptoCurrency": "BTC",
+      "walletContentPriceUSD": "30,000,000",
+      "currencyBox": [
+        {
+          "totalCurrency": "$1 200 = 0,074 BTC",
+          "cryptoCurrency": "1 BTC = $6 542, 35"
+        },
+        {
+          "totalCurrency": "$1 200 = 0,074 BTC",
+          "cryptoCurrency": "1 BTC = $6 542, 35"
+        },
+        {
+          "totalCurrency": "$1 200 = 0,074 BTC",
+          "cryptoCurrency": "1 BTC = $6 542, 35"
+        }
+      ],
+      "crypto": "BTC",
+      "walletContentPriceCrypto": "200",
+      "id": 2
     }
   ],
   "transactions": [
@@ -281,24 +127,24 @@
       "sum": "321"
     }
   ],
-  "cards" : [
-   {
+  "cards": [
+    {
       "currens": "USD",
       "balance": "2000",
       "name": "Visa",
-      "id":1
-   },
-   {
+      "id": 1
+    },
+    {
       "currens": "USD",
       "balance": "4000",
       "name": "MasterCard",
-      "id":2
-   }, 
-   {
+      "id": 2
+    },
+    {
       "currens": "USD",
       "balance": "6000",
       "name": "Mir",
-      "id":3
-   }
-]
+      "id": 3
+    }
+  ]
 }

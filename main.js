@@ -2,8 +2,9 @@ import { overview, transactions } from "./modules/db"
 import { v4 as uuidv4 } from 'uuid';
 import { reloadCard, reloadMiniTransactions, reloadTransactions } from "./modules/reload"
 import { useHttp } from "./modules/http.requests";
-import { Chart } from "chart.js";
+import { Chart } from 'chart.js'
 import { wallets } from "./modules/ui";
+import axios from 'axios'
 
 const { request } = useHttp();
 
