@@ -252,11 +252,11 @@ currency_inp.oninput = () => {
 }
 
 // market
-function marketChart(id, type) {
+function marketChart(id) {
    const ctx = document.getElementById(id);
    ctx.height = 47
    new Chart(ctx, {
-      type: type,
+      type: "line",
       data: {
          labels: [" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
          datasets: [{
@@ -281,25 +281,25 @@ function marketChart(id, type) {
          },
          elements: {
             line: {
-               borderWidth: 3, 
+               borderWidth: 3,
                borderColor: '#00E8AC',
                shadowColor: 'rgba(0,0,0,0.2)',
-               shadowBlur: 10 
+               shadowBlur: 10
             }
          }
       }
    });
 }
 
-marketChart('myChart', "line")
-marketChart('myChart2', "line")
-marketChart('myChart3', "line")
-marketChart('myChart4', "line")
-marketChart('myChart5', "line")
-marketChart('myChart6', "line")
-marketChart('myChart7', "line")
-marketChart('myChart8', "line")
-marketChart('myChart9', "line")
+marketChart('myChart')
+marketChart('myChart2')
+marketChart('myChart3')
+marketChart('myChart4')
+marketChart('myChart5')
+marketChart('myChart6')
+marketChart('myChart7')
+marketChart('myChart8')
+marketChart('myChart9')
 
 // wallets
 let items = document.querySelectorAll('.wallets__top-box-cards .cards-slide');
