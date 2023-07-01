@@ -12,7 +12,7 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles/exchange.scss">
+    <link rel="stylesheet" href="./styles/exchange.scss" />
     <title>Valuet</title>
   </head>
 
@@ -43,7 +43,7 @@
               <p id="market">Market</p>
             </nav>
             <div class="aside_out">
-              <p id="ellipse">  Mike Jakson</p>
+              <p id="ellipse">Mike Jakson</p>
               <p id="out"><a href="./auth/index.html">Log Out</a></p>
             </div>
           </div>
@@ -51,7 +51,6 @@
         <main>
           <div class="container" id="cont-overview">
             <div class="dashboard">
-              
               <!-- Top Container -->
               <div class="top__container dashboard-container">
                 <div class="top__container-left">
@@ -697,59 +696,53 @@
           </div>
 
           <div class="container" id="cont-exchange">
+            <h2>Exchange</h2>
 
-            		
-				<h2>Exchange</h2>
+            <div class="exchange-block">
+              <div class="from-container">
+                <h3>From</h3>
 
-				<div class="exchange-block">
+                <div class="from-block">
+                  <select>
+                    <option>BitCoin</option>
+                  </select>
+                  <img src="./public/icons/bitcoin-exchange.png" class="from-value" />
 
-					<div class="from-container">
-						<h3>From</h3>
+                  <input type="text" class="from-input" />
+                </div>
+              </div>
 
-						<div class="from-block">
-							<select>
-								<option>BitCoin</option>
-							</select>
-							<img src="./public/icons/bitcoin-exchange.png" class="from-value">
+              <div class="to-container">
+                <h3>To</h3>
 
+                <div class="to-block">
+                  <select>
+                    <option>GridCoin</option>
+                  </select>
+                  <img src="./public/icons/grid-back.png" class="from-value" />
+                  <img src="./public/icons/grid-front.png" class="grid-in" />
 
-							<input type="text" class="from-input">
-						</div>
-					</div>
+                  <input type="text" class="from-input" />
+                </div>
+              </div>
+            </div>
 
-					<div class="to-container">
-						<h3>To</h3>
-
-						<div class="to-block">
-							<select>
-								<option>GridCoin</option>
-							</select>
-							<img src="./public/icons/grid-back.png" class="from-value">
-							<img src="./public/icons/grid-front.png" class="grid-in">
-
-
-							<input type="text" class="from-input">
-						</div>
-					</div>
-
-				</div>
-
-				<div class="exchange-block">
-					<div class="total-block">
-						<div class="total">
-							<h2>0.45234 BTC</h2>
-							<img src="./public/icons/bitcoin.svg" height="59px">
-						</div>
-						<img src="./public/icons/Arrow.svg" width="200px" height="40px">
-						<div class="total">
-							<img src="./public/images/Bitcoin-big.png" height="59px">
-							<h2>1.45534 gRC</h2>
-						</div>
-					</div>
-				</div>
-				<div class="btn-block">
-					<button class="btn-exchange">Exchange</button>
-				</div>
+            <div class="exchange-block">
+              <div class="total-block">
+                <div class="total">
+                  <h2>0.45234 BTC</h2>
+                  <img src="./public/icons/bitcoin.svg" height="59px" />
+                </div>
+                <img src="./public/icons/Arrow.svg" width="200px" height="40px" />
+                <div class="total">
+                  <img src="./public/images/Bitcoin-big.png" height="59px" />
+                  <h2>1.45534 gRC</h2>
+                </div>
+              </div>
+            </div>
+            <div class="btn-block">
+              <button class="btn-exchange">Exchange</button>
+            </div>
           </div>
           <div class="container" id="cont-market">
             <div class="market-title">

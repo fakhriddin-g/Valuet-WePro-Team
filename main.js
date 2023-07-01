@@ -33,12 +33,14 @@ tabs.forEach((btn) => {
 
 
 // Overview
-request('/overviews', 'get').then(res => console.log(res))
-wallets(overview.splice(0, 4));
-
 let addWidget = document.querySelector(".top__container-right-btn");
 let widgetModal = document.querySelector(".overview-modal");
+let addWidgetBtn = document.querySelector(".add-widget");
 let widgetForm = document.forms.addWidget
+
+request('/overviews', 'get').then(res => {
+  wallets(res.splice(res.length - 4, res.length))
+})
 
 widgetForm.onsubmit = (e) => {
   e.preventDefault()
@@ -69,7 +71,9 @@ widgetForm.onsubmit = (e) => {
   })
 
   console.log(widget);
-  request("/overviews", "post", widget).then(res => console.log(res))
+  request("/overviews", "post", widget)
+  widgetModal.style.display = 'none'
+  location.assign('/')
 }
 
 addWidget.onclick = () => {

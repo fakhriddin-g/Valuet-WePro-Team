@@ -15,7 +15,29 @@
       "password": "1234"
     }
   ],
-  "overviews": [],
+  "overviews": [
+    {
+      "cryptoCurrency": "BTC",
+      "walletContentPriceUSD": "30,000,000",
+      "currencyBox": [
+        {
+          "totalCurrency": "$1 200 = 0,074 BTC",
+          "cryptoCurrency": "1 BTC = $6 542, 35"
+        },
+        {
+          "totalCurrency": "$1 200 = 0,074 BTC",
+          "cryptoCurrency": "1 BTC = $6 542, 35"
+        },
+        {
+          "totalCurrency": "$1 200 = 0,074 BTC",
+          "cryptoCurrency": "1 BTC = $6 542, 35"
+        }
+      ],
+      "crypto": "Bitcoin",
+      "walletContentPriceCrypto": "100",
+      "id": 1
+    }
+  ],
   "transactions": [
     {
       "id": "99be5ead-3900-4cd5-910e-2a3b71b9ef07",
