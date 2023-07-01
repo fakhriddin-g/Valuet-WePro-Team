@@ -155,3 +155,105 @@ export let transactions = [
    //  },
 
 ]
+export let cards = [
+   {
+      currens: "USD",
+      balance: "2000",
+      name: "Visa",
+      id:1,
+   },
+   {
+      currens: "USD",
+      balance: "4000",
+      name: "MasterCard",
+      id:2,
+   }, 
+   {
+      currens: "USD",
+      balance: "6000",
+      name: "Mir",
+      id:3
+   },
+]
+export let overview = [
+  {
+    "crypto": "Bitcoin",
+    "cryptoCurrency": "BTC",
+    "walletContentPriceCrypto": "600",
+    "walletContentPriceUSD": "30,000,000",
+    "currencyBox": [
+      {
+        "totalCurrency": "$1 200 = 0,074 BTC",
+        "cryptoCurrency": "1 BTC = $6 542, 35"
+      },
+      {
+        "totalCurrency": "$1 200 = 0,074 BTC",
+        "cryptoCurrency": "1 BTC = $6 542, 35"
+      },
+      {
+        "totalCurrency": "$1 200 = 0,074 BTC",
+        "cryptoCurrency": "1 BTC = $6 542, 35"
+      },
+    ]
+  },
+  {
+    "crypto": "Bitcoin",
+    "cryptoCurrency": "BTC",
+    "walletContentPriceCrypto": "600",
+    "walletContentPriceUSD": "30,000,000",
+    "currencyBox": [
+      {
+        "totalCurrency": "$1 200 = 0,074 BTC",
+        "cryptoCurrency": "1 BTC = $6 542, 35"
+      },
+      {
+        "totalCurrency": "$1 200 = 0,074 BTC",
+        "cryptoCurrency": "1 BTC = $6 542, 35"
+      },
+      {
+        "totalCurrency": "$1 200 = 0,074 BTC",
+        "cryptoCurrency": "1 BTC = $6 542, 35"
+      },
+    ]
+  },
+  {
+    "crypto": "Bitcoin",
+    "cryptoCurrency": "BTC",
+    "walletContentPriceCrypto": "600",
+    "walletContentPriceUSD": "30,000,000",
+    "currencyBox": [
+      {
+        "totalCurrency": "$1 200 = 0,074 BTC",
+        "cryptoCurrency": "1 BTC = $6 542, 35"
+      },
+      {
+        "totalCurrency": "$1 200 = 0,074 BTC",
+        "cryptoCurrency": "1 BTC = $6 542, 35"
+      },
+      {
+        "totalCurrency": "$1 200 = 0,074 BTC",
+        "cryptoCurrency": "1 BTC = $6 542, 35"
+      },
+    ]
+  },
+  {
+    "crypto": "Bitcoin",
+    "cryptoCurrency": "BTC",
+    "walletContentPriceCrypto": "600",
+    "walletContentPriceUSD": "30,000,000",
+    "currencyBox": [
+      {
+        "totalCurrency": "$1 200 = 0,074 BTC",
+        "cryptoCurrency": "1 BTC = $6 542, 35"
+      },
+      {
+        "totalCurrency": "$1 200 = 0,074 BTC",
+        "cryptoCurrency": "1 BTC = $6 542, 35"
+      },
+      {
+        "totalCurrency": "$1 200 = 0,074 BTC",
+        "cryptoCurrency": "1 BTC = $6 542, 35"
+      },
+    ]
+  },
+]

@@ -1,5 +1,21 @@
 {
-  "users": [],
+  "users": [
+    {
+      "id": 1,
+      "name": "nek1n",
+      "surname": "sef",
+      "email": "amalabdurahmonov427@gmail.com",
+      "password": "1234"
+    },
+    {
+      "id": 2,
+      "name": "nek1n",
+      "surname": "sef",
+      "email": "amalabdurahmonov427@gmail.com",
+      "password": "1234"
+    }
+  ],
+  "overviews": [],
   "transactions": [
     {
       "id": "99be5ead-3900-4cd5-910e-2a3b71b9ef07",
