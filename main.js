@@ -1,17 +1,27 @@
-import { overview, transactions } from "./modules/db"
-import { v4 as uuidv4 } from 'uuid';
-import { reloadCard, reloadMiniTransactions, reloadTransactions } from "./modules/reload"
-import { useHttp } from "./modules/http.requests";
-import { Chart } from 'chart.js'
-import { wallets } from "./modules/ui";
+import {
+   v4 as uuidv4
+} from 'uuid';
+import {
+   reloadCard,
+   reloadMiniTransactions,
+   reloadTransactions
+} from "./modules/reload"
+import {
+   useHttp
+} from "./modules/http.requests";
+import {
+   Chart
+} from 'chart.js'
+import {
+   wallets
+} from "./modules/ui";
 import axios from 'axios'
 
-const { request } = useHttp();
+const {request} = useHttp();
 
 let conts = document.querySelectorAll("main .container");
 let tabs = document.querySelectorAll("aside p");
 let outTab = document.querySelector('#out')
-
 
 // outTab.onclick = () => {
 //   location.assign('/auth/index.html/')
@@ -29,16 +39,17 @@ tabs.forEach((btn) => {
    btn.style.backgroundImage = `url("/public/icons/${key}.svg")`;
 
    btn.onclick = () => {
-      tabs.forEach((btn) => btn.classList.remove("active_link"));
-      btn.classList.add("active_link");
+      tabs.forEach(btn => btn.classList.remove("active_link"))
+      btn.classList.add("active_link")
+      if (key !== "ellipse" && key !== "out") {
 
-      conts.forEach((cont) => cont.classList.add("hide"));
+         conts.forEach(cont => cont.classList.add('hide'))
 
-      let cont = document.querySelector(`#cont-${key}`);
-      cont.classList.remove("hide");
-   };
-});
-
+         let cont = document.querySelector(`#cont-${key}`)
+         cont.classList.remove('hide')
+      }
+   }
+})
 
 // Overview
 let addWidget = document.querySelector(".top__container-right-btn");
@@ -47,7 +58,7 @@ let addWidgetBtn = document.querySelector(".add-widget");
 let widgetForm = document.forms.addWidget
 
 request('/overviews', 'get').then(res => {
-  wallets(res.splice(res.length - 4, res.length))
+   wallets(res.splice(res.length - 4, res.length))
 })
 
 widgetForm.onsubmit = (e) => {
@@ -56,8 +67,7 @@ widgetForm.onsubmit = (e) => {
    let widget = {
       "cryptoCurrency": "BTC",
       "walletContentPriceUSD": "30,000,000",
-      "currencyBox": [
-         {
+      "currencyBox": [{
             "totalCurrency": "$1 200 = 0,074 BTC",
             "cryptoCurrency": "1 BTC = $6 542, 35"
          },
@@ -78,10 +88,10 @@ widgetForm.onsubmit = (e) => {
       widget[key] = value
    })
 
-  console.log(widget);
-  request("/overviews", "post", widget)
-  widgetModal.style.display = 'none'
-  location.assign('/')
+   console.log(widget);
+   request("/overviews", "post", widget)
+   widgetModal.style.display = 'none'
+   location.assign('/')
 }
 
 addWidget.onclick = () => {
@@ -94,7 +104,7 @@ addWidget.onclick = () => {
 let trans_column = document.querySelector(".trans-column");
 let trans_smoke = document.querySelector(".trans-wrapper .trans-after");
 
-reloadTransactions(transactions, trans_column);
+// reloadTransactions(transactions, trans_column);
 
 setTimeout(() => {
    if (trans_column.childElementCount <= 4) {
@@ -147,11 +157,12 @@ let localedSymbols = JSON.parse(localStorage.getItem("symbols"));
 
 if (!localedSymbols) {
    axios
-      .get(import.meta.env.VITE_CURRENCY_API, {
-         headers: {
-            apiKey: import.meta.env.VITE_API_KEY,
-         },
-      })
+      .get(
+         import.meta.env.VITE_CURRENCY_API, {
+            headers: {
+               apiKey: import.meta.env.VITE_API_KEY,
+            },
+         })
       .then((res) => {
          if (res.status === 200 || res.status === 201) {
             localStorage.setItem("symbols", JSON.stringify(res.data.symbols));
@@ -178,6 +189,47 @@ let trans_inputs = document.addTransaction.querySelectorAll("input");
 request("/transactions/", "get").then((res) =>
    reloadTransactions(res, trans_column)
 );
+
+
+
+let filterBtns = document.querySelectorAll('.trans-btns button')
+let transAll = document.querySelector('.trans-btns #transAll')
+
+filterBtns.forEach(btn => {
+   btn.onclick = () => {
+      let key = btn.getAttribute("data-select")
+      filterBtns.forEach(btn => btn.classList.remove("trans-btn_active"))
+      btn.classList.add("trans-btn_active")
+      // console.log(key);
+      if (key === "All") {
+         request("/transactions", "get")
+            .then(res => reloadTransactions(res, trans_column))
+
+         setTimeout(() => {
+            if (trans_column.childElementCount <= 4) {
+               trans_smoke.style.display = "none"
+            } else {
+               trans_smoke.style.display = "block"
+            }
+
+         }, 300);
+
+      } else {
+
+         request("/transactions?succes=" + key, "get")
+            .then(res => reloadTransactions(res, trans_column))
+
+         setTimeout(() => {
+            if (trans_column.childElementCount <= 4) {
+               trans_smoke.style.display = "none"
+            } else {
+               trans_smoke.style.display = "block"
+            }
+
+         }, 300);
+      }
+   }
+})
 
 addTransaction.onsubmit = (e) => {
    e.preventDefault();
@@ -236,7 +288,12 @@ addTransaction.onsubmit = (e) => {
          }
       }, 300);
    }
-};
+
+   filterBtns.forEach(btn => {
+      filterBtns.forEach(btn => btn.classList.remove("trans-btn_active"))
+      transAll.classList.add("trans-btn_active")
+   })
+}
 
 let valuts = {
    BTC: "bitcoin",
@@ -247,33 +304,46 @@ currency_inp.oninput = () => {
       }.svg")`;
 };
 
-let filterBtns = document.querySelectorAll(".trans-btns button");
-
-filterBtns.forEach((btn) => {
-   btn.onclick = () => {
-      let key = btn.getAttribute("data-select");
-      filterBtns.forEach((btn) => btn.classList.remove("trans-btn_active"));
-      btn.classList.add("trans-btn_active");
-      // console.log(key);
-      if (key === "All") {
-         request("/transactions", "get").then((res) =>
-            reloadTransactions(res, trans_column)
-         );
-
-         setTimeout(() => {
-            if (trans_column.childElementCount <= 4) {
-               trans_smoke.style.display = "none";
-            } else {
-               trans_smoke.style.display = "block";
+// market
+function marketChart(id) {
+   const ctx = document.getElementById(id);
+   ctx.height = 47
+   new Chart(ctx, {
+      type: "line",
+      data: {
+         labels: [" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+         datasets: [{
+            data: [1, 2, 2, 3, 1, 5, 1, 2, 2, 3, 1, 2],
+            fill: false,
+            pointRadius: 0
+         }]
+      },
+      options: {
+         scales: {
+            x: {
+               display: false
+            },
+            y: {
+               display: false
             }
-         }, 300);
-      } else {
-         request("/transactions?succes=" + key, "get").then((res) =>
-            reloadTransactions(res, trans_column)
-         );
+         },
+         plugins: {
+            legend: {
+               display: false
+            }
+         },
+         elements: {
+            line: {
+               borderWidth: 3,
+               borderColor: '#00E8AC',
+               shadowColor: 'rgba(0,0,0,0.2)',
+               shadowBlur: 10
+            }
+         }
       }
-   }
-})
+   });
+}
+
 // wallets
 let box = document.querySelector('.wallets__top-box-cards');
 let items_box = document.querySelector('.right-block__box');
@@ -281,7 +351,7 @@ const ctx = document.getElementById('wl-chard__circle-chart');
 let total_p = document.querySelector('.effect-chart p');
 request("/cards", "get")
    .then(res => {
-      let [data, total] = reloadCard(res, box); 
+      let [data, total] = reloadCard(res, box);
       new Chart(ctx, {
          type: 'doughnut',
          data: data,
@@ -291,7 +361,7 @@ request("/cards", "get")
       });
       total_p.innerText = `${total}$`;
       let items = document.querySelectorAll('.wallets__top-box-cards .cards-slide');
-      
+
       items.forEach(item => {
          item.onmouseover = () => {
             item.classList.add('hover')
@@ -331,5 +401,3 @@ effect.onclick = () => {
 
    items_box.scrollTop = items_box.scrollHeight;
 }
-
-
