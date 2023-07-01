@@ -1,3 +1,4 @@
+import { getData } from "../modules/http";
 import { useHttp } from "../modules/http.requests";
 
 
@@ -13,6 +14,10 @@ let viewIconTwo = document.querySelector('.view-2')
 let unViewIconTwo = document.querySelector('.unview-2')
 let inpPassTwo = document.querySelector('.pass-2')
 let signUpInp = document.querySelectorAll('.input-up')
+let cardAfter = document.querySelector('.card-after')
+let cardBefore = document.querySelector('.card-before')
+let valuetAfter = document.querySelector('.valuet-after') 
+let valuetH1 = document.querySelector('#valuet-h1')
 
 const getUser = () => {
     fetch(baseUrl + "/users")
@@ -83,71 +88,108 @@ arr.forEach((btn, idx) => {
 });
 
 
-let regularMap = {
-    firstname: /^[a-z ,.'-]+$/i,
-    lastname: /^[a-z ,.'-]+$/i,
+let regex = {
+    name: /^[a-z ,.'-]+$/i,
+    surname: /^[a-z ,.'-]+$/i,
     email: /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/,
     password: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/
 }
 
+let isFormValid = true
+
+
+signUpInp.forEach(inp => {
+    inp.onkeyup = () => {
+        if (!regex[inp.name].test(inp.value)) {
+            inp.classList.add('error');
+            valuetH1.classList.add('h1-error')
+            cardAfter.classList.add('block-error')
+            cardBefore.classList.add('block-error')
+            valuetAfter.classList.add('block-error')
+            isFormValid = false;
+        } else {
+            inp.classList.remove('error');
+            valuetH1.classList.remove('h1-error')
+            cardAfter.classList.remove('block-error')
+            cardBefore.classList.remove('block-error')
+            valuetAfter.classList.remove('block-error')
+            isFormValid = true;
+        }
+    }
+
+})
+
 const { request } = useHttp()
 
 const signup = document.forms.signup
-let loading = false
+const signin = document.forms.signin
 let emb = document.querySelector('.embed')
+let loading = false
+let inpEmail = document.querySelector('.E-mail')
+
 
 let count = 0
 
 signup.onsubmit = (e) => {
     e.preventDefault();
-    loading = true;
   
-    let isFormValid = true;
+
 
     signUpInp.forEach(inp => {
-        if (inp.value.length < 3) {
-            inp.classList.add('error');
-            isFormValid = false;
-        } else {
-            inp.classList.remove('error');
-        }
-    });
-
-    if (isFormValid) {
-        let user = {
-            id: count
-        }
-
-        let formData = new FormData(signup);
-
-        for (let [key, value] of formData.entries()) {
-            user[key] = value;
-        }
-
-        localStorage.setItem("user", JSON.stringify(user))
-
-
-        let json = JSON.stringify(user);
-
-        creatUser(json);
-
-        // location.assign("/pages/sign-in/")
-
-        request("/users", "get")
-            .then(res => {
-                if (res === 404) {
-                    alert('Something went wrong');
-                }
-                loading = false;
-                
-                signup.reset();
-            });
-
-        signup.reset();
-
-        count++
+    let user = {
+        id: count
     }
+
+    let formData = new FormData(signup);
+
+    for (let [key, value] of formData.entries()) {
+        user[key] = value;
+    }
+    
+            if (isFormValid) {
+             
+        
+                localStorage.setItem("user", JSON.stringify(user))
+        
+        
+                let json = JSON.stringify(user);
+        
+                creatUser(json);
+        
+                // location.assign("/index.html/")
+        
+                request("/users", "get")
+                    .then(res => {
+                        if (res === 404) {
+                            alert('Something went wrong');
+                        }
+                        
+                    });
+        
+                signup.reset();
+        
+                count++
+            }
+   
+    
+});
+    
 };
+
+signin.onsubmit = (e) => {
+    e.preventDefault();
+
+    
+getData('/users?email=' + inpEmail.value.toLowerCase().trim())
+.then(res => {
+    if(res.data[0].email) {
+        console.log(res.data);
+    }
+    if(inpPassTwo.value == res.data[0].password) {
+        location.assign(/index.html/)
+    }
+})
+}
 
 const creatUser = async (body) => {
     const res = await fetch(baseUrl + "/users", {
@@ -162,37 +204,3 @@ const creatUser = async (body) => {
     }
 }
 
-
-// let form = doc.forms.reg;
-// form.onsubmit = (event) => {
-//     event.preventDefault();
-//     let obj = {};
-//     let fm = new FormData(form);
-//     fm.forEach((value, key) => {
-//         if (value.length > 0) {
-//             obj[key] = value
-//         } else {
-//             b = false;
-//         }
-//     })
-//     inputs.forEach(input => {
-//         if (!regularMap[input.name].test(input.value)) {
-//             b = false;
-//             input.classList.add('error');
-//             textError(info, p, 'Все поля обязательны для правельного заполнения')
-//         } else {
-//             input.classList.remove('error')
-//         }
-//     })
-//     if (b) {
-//         getData('/users?email=' + obj.email)
-//             .then(res => {
-//                 if (!res.data.length > 0) {
-//                     postData("/users", obj)
-//                         .then(() => location.assign('http://localhost:5173/pages/signin/'))
-//                 } else {
-//                     textError(info, p, 'Такой акк уже существует')
-//                 }
-//             })
-//     }
-// }
