@@ -93,34 +93,4 @@ export function reloadMiniTransactions(arr, place) {
    </div >`
    }
 }
-export function reloadCard(arr, place) {
-   const data = {
-      labels: [],
-      datasets: [{
-         label: 'My First Dataset',
-         data: [],
-         backgroundColor: [
-         ],
-         hoverOffset: 4,
-         borderColor: "transparent",
-      }],
-   };
-   let total = 0;
-   place.innerHTML = ' '
-   for (let item of arr) {
-      place.innerHTML += `
-      <div class="cards-slide"><div class="item"><div class="item__title">${item.name}</div><div class="item__statistic-box"><div class="item__text-box"><div class="item__price">${item.balance +" "+ item.currens}</div><div class="item__proc">+2,59%</div></div><img src="./public/icons/btc-icon.png" alt="Btc" class="item__img"></div><img src="./public/images/statistic-vector.png" alt="" class="item__status-vector"></div></div>
-      `
-      total+=(+item.balance)
-   }
-   function maxBalanxe(array) {
-      return [...array].sort((a, b) => +b.balance - +a.balance).slice(0, 3);
-   }
-   for (let q of maxBalanxe(arr)){
-      data.datasets[0].data.push(q.balance);
-      data.labels.push(q.name)
-      data.datasets[0].backgroundColor.push(getRandomColor())
-   }
-   
-   return [data , total];
-}
+export function reloadCard(arr, place) {const data = { labels: [], datasets: [{ label: 'My First Dataset', data: [], backgroundColor: [], hoverOffset: 4, borderColor: "transparent", }], }; let total = 0; place.innerHTML = ' '; for (let item of maxBalanxe(arr)) { place.innerHTML += `<div class="cards-slide"><div class="item"><div class="item__title">${item.name}</div><div class="item__statistic-box"><div class="item__text-box"><div class="item__price">${item.balance + " " + item.currens}</div><div class="item__proc">+2,59%</div></div><img src="./public/icons/btc-icon.png" alt="Btc" class="item__img"></div><img src="./public/images/statistic-vector.png" alt="" class="item__status-vector"></div></div>`; total += (+item.balance) }; function maxBalanxe(array) { return [...array].sort((a, b) => +b.balance - +a.balance); }; for (let q of maxBalanxe(arr).slice(0, 3)) { data.datasets[0].data.push(q.balance); data.labels.push(q.name); data.datasets[0].backgroundColor.push(getRandomColor()); }; return [data, total];}

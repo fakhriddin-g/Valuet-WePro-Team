@@ -13,9 +13,38 @@
       "surname": "sef",
       "email": "amalabdurahmonov427@gmail.com",
       "password": "1234"
+    },
+    {
+      "id": 3,
+      "name": "",
+      "surname": "",
+      "email": "",
+      "password": ""
     }
   ],
-  "overviews": [],
+  "overviews": [
+    {
+      "cryptoCurrency": "BTC",
+      "walletContentPriceUSD": "30,000,000",
+      "currencyBox": [
+        {
+          "totalCurrency": "$1 200 = 0,074 BTC",
+          "cryptoCurrency": "1 BTC = $6 542, 35"
+        },
+        {
+          "totalCurrency": "$1 200 = 0,074 BTC",
+          "cryptoCurrency": "1 BTC = $6 542, 35"
+        },
+        {
+          "totalCurrency": "$1 200 = 0,074 BTC",
+          "cryptoCurrency": "1 BTC = $6 542, 35"
+        }
+      ],
+      "crypto": "dasdsad",
+      "walletContentPriceCrypto": "122",
+      "id": 1
+    }
+  ],
   "transactions": [
     {
       "id": "99be5ead-3900-4cd5-910e-2a3b71b9ef07",
@@ -137,6 +166,48 @@
       "img": "bitcoin",
       "currency": "BTC",
       "sum": "412"
+    },
+    {
+      "id": "adc17522-6759-4321-bd13-94ae9c3e8c66",
+      "succes": "Waiting",
+      "date": {
+        "time": "AM 17:30",
+        "day": "1 jun 2023"
+      },
+      "img": "bitcoin",
+      "currency": "USD",
+      "sum": "1000"
+    },
+    {
+      "id": "610ca21f-2c12-46e2-a619-9175b31bddb1",
+      "succes": "Waiting",
+      "date": {
+        "time": "AM 17:34",
+        "day": "1 jun 2023"
+      },
+      "img": "bitcoin",
+      "currency": "USD",
+      "sum": "1000"
+    }
+  ],
+  "cards": [
+    {
+      "currens": "USD",
+      "balance": "2000",
+      "name": "Visa",
+      "id": 1
+    },
+    {
+      "currens": "USD",
+      "balance": "4000",
+      "name": "MasterCard",
+      "id": 2
+    },
+    {
+      "currens": "USD",
+      "balance": "6000",
+      "name": "Mir",
+      "id": 3
     }
   ]
 }
