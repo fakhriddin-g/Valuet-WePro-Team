@@ -1,4 +1,4 @@
-import { cards, transactions ,overview } from "./modules/db"
+import { transactions, overview } from "./modules/db"
 import { v4 as uuidv4 } from 'uuid';
 import { reloadCard, reloadMiniTransactions, reloadTransactions } from "./modules/reload"
 import { useHttp } from "./modules/http.requests";
@@ -246,28 +246,34 @@ filterBtns.forEach(btn => {
 let box = document.querySelector('.wallets__top-box-cards');
 let items_box = document.querySelector('.right-block__box');
 const ctx = document.getElementById('wl-chard__circle-chart');
-let total_p = document.querySelector('.effect-chart p')
-let [data , total] = reloadCard(cards, box);
-new Chart(ctx, {
-   type: 'doughnut',
-   data: data,
-   options:{
-      cutoutPercentage:75
-   }
-});
-total_p.innerText = `${total}$`
+let total_p = document.querySelector('.effect-chart p');
+request("/cards", "get")
+   .then(res => {
+      let [data, total] = reloadCard(res, box);
+      new Chart(ctx, {
+         type: 'doughnut',
+         data: data,
+         options: {
+            cutoutPercentage: 75
+         }
+      });
+      total_p.innerText = `${total}$`;
+      let items = document.querySelectorAll('.wallets__top-box-cards .cards-slide');
+      console.log(items);
+      
+      items.forEach(item => {
+         item.onmouseover = () => {
+            item.classList.add('hover')
+         }
+         item.onmouseout = () => {
+            item.classList.remove('hover')
+         }
+      })
+   })
+
 
 let effect = document.querySelector('.effect');
-let items = document.querySelectorAll('.wallets__top-box-cards .cards-slide');
 
-items.forEach(item => {
-   item.onmouseover = () => {
-      item.classList.add('hover')
-   }
-   item.onmouseout = () => {
-      item.classList.remove('hover')
-   }
-})
 let obj = [
    1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 ]
@@ -292,8 +298,5 @@ items_box.onscroll = () => {
 }
 
 effect.onclick = () => {
-
    items_box.scrollTop = items_box.scrollHeight;
-
 }
-
