@@ -4,18 +4,16 @@ import { reloadMiniTransactions, reloadTransactions } from "./modules/reload"
 import { useHttp } from "./modules/http.requests";
 import { Chart } from "chart.js";
 import { wallets } from "./modules/ui";
+import axios from 'axios'
+import { user } from './modules/user.js'
 
 const { request } = useHttp();
 
 let conts = document.querySelectorAll("main .container");
 let tabs = document.querySelectorAll("aside p");
-let outTab = document.querySelector('#out')
+let ellipse = document.querySelector('#ellipse')
 
-
-// outTab.onclick = () => {
-//   location.assign('/auth/index.html/')
-// }
-
+ellipse.innerHTML = `${user.name} ${user.surname}`
 
 conts.forEach((cont, idx) => {
   if (idx !== 0) {
