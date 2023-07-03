@@ -70,17 +70,38 @@
   margin: 16px auto 3px 24px;
 }
 
-.middle-container__balance .circle {
-  width: 146px;
-  height: 146px;
-  border-radius: 100%;
-  background: #000;
-  margin-bottom: 24px;
+.middle-container__balance{
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  .circle {
+    width: 146px;
+    height: 146px;
+    margin-bottom: 24px;
+    
+    position: relative;
+
+    &-title {
+      position: absolute;
+      top: 55%;
+      left: 50%;
+      translate: -50% -50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+
+      span {
+        font-size: 12px;
+      }
+    }
+  }
+
+  &-chart {
+    width: 100%;
+    height: 100%;
+  }
+} 
+  
+
 
 .middle-container__balance-wallet {
   width: 100%;
@@ -178,6 +199,7 @@
 .middle-container__wallet h3 {
   font-size: 14px;
   margin-bottom: 5px;
+  display: inline;
 }
 
 .middle-container__wallet-content {
