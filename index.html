@@ -12,6 +12,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
 		rel="stylesheet" />
 	<link rel="stylesheet" href="./styles/exchange.scss" />
+  <script src="/modules/guard.js"></script>
 	<title>Valuet</title>
 </head>
 
@@ -213,7 +214,7 @@
 								</select>
 								<img src="./public/icons/bitcoin-exchange.png" class="from-value" />
 
-								<input type="text" class="from-input" />
+								<input type="number" class="from-input from-currency" />
 							</div>
 						</div>
 
@@ -227,7 +228,7 @@
 								<img src="./public/icons/grid-back.png" class="from-value" />
 								<img src="./public/icons/grid-front.png" class="grid-in" />
 
-								<input type="text" class="from-input" />
+								<input type="text" class="from-input to-input" readonly />
 							</div>
 						</div>
 					</div>

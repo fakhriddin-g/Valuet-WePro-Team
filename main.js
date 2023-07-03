@@ -450,35 +450,66 @@ function setOptionExchange(data) {
       currencyExchange.append(opt)
   }
 }
-// const apiKey = 'YOUR_API_KEY';
-// const amountInDollars = 100;
 
-// // Функция для получения курса обмена валют
-// function getExchangeRate(baseCurrency, targetCurrency) {
-//   const url = `https://openexchangerates.org/api/latest.json?app_id=${apiKey}&base=${baseCurrency}`;
+const apiKey = "332555db6c7941f1a4f7a5c15e00f1ba";
+const amountInDollars = 100;
+let toInput = document.querySelector('.to-input')
+let fromInput = document.querySelector('.from-currency')
+
+
+
+// Функция для получения курса обмена валют
+function getExchangeRate(baseCurrency, targetCurrency) {
+  const rates = JSON.parse(localStorage.getItem('exchangeRates'));
   
-//   return fetch(url)
-//     .then(response => response.json())
-//     .then(data => {
-//       const rate = data.rates[targetCurrency];
-//       return rate;
-//     })
-//     .catch(error => {
-//       console.error("Error:", error);
-//     });
-// }
+  if (rates && rates[baseCurrency] && rates[baseCurrency][targetCurrency]) {
+    return Promise.resolve(rates[baseCurrency][targetCurrency]);
+  } else {
+    const url = `https://openexchangerates.org/api/latest.json?app_id=${apiKey}&base=${baseCurrency}`;
+  
+    return fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        const rate = data.rates[targetCurrency];
+        
+        const updatedRates = {
+          ...(rates || {}),
+          [baseCurrency]: {
+            ...(rates && rates[baseCurrency] || {}),
+            [targetCurrency]: rate
+          }
+        };
 
-// // Функция для конвертации валют
-// function convertCurrency(amount, baseCurrency, targetCurrency) {
-//   return getExchangeRate(baseCurrency, targetCurrency)
-//     .then(rate => {
-//       const convertedAmount = amount * rate;
-//       return convertedAmount;
-//     });
-// }
+        localStorage.setItem('exchangeRates', JSON.stringify(updatedRates));
+        
+        return rate;
+      })
+      .catch(error => {
+        console.error("Error:", error);
+      });
+  }
+}
 
-// // Пример использования
-// convertCurrency(amountInDollars, 'USD', 'RUB')
-//   .then(convertedAmount => {
-//     console.log(`${amountInDollars} USD is equal to ${convertedAmount} RUB`);
-//   });
+// Функция для конвертации валют
+function convertCurrency(amount, baseCurrency, targetCurrency) {
+  return getExchangeRate(baseCurrency, targetCurrency)
+    .then(rate => {
+      const convertedAmount = amount * rate;
+      return convertedAmount;
+    });
+}
+
+fromInput.onkeyup = () => {
+  console.log(fromInput.value);
+  convertCurrency(+fromInput.value, 'USD', 'RUB')
+    .then(convertedAmount => {
+      toInput.value = +convertedAmount;
+    });
+}
+
+
+// Пример использования
+
+// if(fromInput.value.length > 1) {
+
+// }
