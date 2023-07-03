@@ -10,20 +10,24 @@ import {
    useHttp
 } from "./modules/http.requests";
 import {
-   Chart
+   Chart,
+   registerables
 } from 'chart.js'
 import {
    wallets
 } from "./modules/ui";
 import axios from 'axios'
 
+if(Chart) {
+   Chart.register(...registerables)
+}
 const {request} = useHttp();
 
 let conts = document.querySelectorAll("main .container");
 let tabs = document.querySelectorAll("aside p");
 let ellipse = document.querySelector('#ellipse')
 
-ellipse.innerHTML = `${user.name} ${user.surname}`
+// ellipse.innerHTML = `${user.name} ${user.surname}`
 
 conts.forEach((cont, idx) => {
    if (idx !== 0) {
