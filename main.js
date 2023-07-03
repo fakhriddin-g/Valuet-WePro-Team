@@ -17,12 +17,16 @@ import {
    wallets
 } from "./modules/ui";
 import axios from 'axios'
+import { user } from './modules/user.js'
 
 if(Chart) {
    Chart.register(...registerables)
 }
 
 const {request} = useHttp();
+let ellipse = document.querySelector('#ellipse')
+
+ellipse.innerHTML = `${user.name} ${user.surname}`
 
 let conts = document.querySelectorAll("main .container");
 let tabs = document.querySelectorAll("aside p");
