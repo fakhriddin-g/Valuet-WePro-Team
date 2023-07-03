@@ -16,51 +16,6 @@
     <title>Valuet</title>
   </head>
 
-  <body>
-    <div class="wrapper">
-      <div class="layouts">
-        <header>
-          <div class="container">
-            <div class="header">
-              <div class="header__left">
-                <input type="text" />
-              </div>
-              <div class="header__right">
-                <button class="mail btn_after"></button>
-                <button class="bell btn_after"></button>
-              </div>
-            </div>
-          </div>
-        </header>
-        <aside>
-          <h2 class="logo">VALUET</h2>
-          <div class="actions">
-            <nav class="links">
-              <p class="active_link" id="overview">Overview</p>
-              <p id="wallets">Wallets</p>
-              <p id="transactions">Transactions</p>
-              <p id="exchange">Exchange</p>
-              <p id="market">Market</p>
-            </nav>
-            <div class="aside_out">
-              <p id="ellipse">Mike Jakson</p>
-             <p id="out"><a href="/auth/index.html"> Log Out</a></p>
-            </div>
-          </div>
-        </aside>
-        <main>
-          <div class="container" id="cont-overview">
-            <div class="dashboard">
-              
-              <!-- Top Container -->
-              <div class="top__container dashboard-container">
-                <div class="top__container-left">
-                  <h3>Overview</h3>
-                  <span>25 October, Sundey</span>
-                </div>
-                <button class="top__container-right-btn">Add Widget</button>
-              </div>
-
 <body>
 	<div class="wrapper">
 		<div class="layouts">
@@ -112,7 +67,13 @@
 							<!-- Balance -->
 							<div class="middle-container__balance middle-row">
 								<h4>Balance</h4>
-								<div class="circle"></div>
+								<div class="circle">
+                  <div class="circle-title">
+                    <p>Balance</p>
+                    <span></span>
+                  </div>
+                  <canvas id="middle-container__balance-chart"></canvas>
+                </div>
 								<div class="middle-container__balance-wallet">
 									<div></div>
 									<p>Ethereum</p>
@@ -191,6 +152,7 @@
 						</form>
 					</div>
 				</div>
+
 				<div class="container" id="cont-wallets">
 					<div class="wallets">
 						<div class="wallets__container sec-container">
