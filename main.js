@@ -19,9 +19,9 @@ import {
 import axios from 'axios'
 import { user } from './modules/user.js'
 
-if(Chart) {
-   Chart.register(...registerables)
-}
+// if(Chart) {
+//    Chart.register(...registerables)
+// }
 
 const {request} = useHttp();
 let ellipse = document.querySelector('#ellipse')
@@ -30,12 +30,6 @@ ellipse.innerHTML = `${user.name} ${user.surname}`
 
 let conts = document.querySelectorAll("main .container");
 let tabs = document.querySelectorAll("aside p");
-let outTab = document.querySelector('#out')
-
-// outTab.onclick = () => {
-//   location.assign('/auth/index.html/')
-// }
-
 
 conts.forEach((cont, idx) => {
    if (idx !== 0) {
@@ -160,6 +154,7 @@ trans_modal_bg.onclick = () => {
       trans_modal_bg.style.display = "none";
    }, 500);
 };
+
 let currency_list = document.querySelector("#currency-list");
 let currency_inp = document.querySelector(".inp-currency");
 let localedSymbols = JSON.parse(localStorage.getItem("symbols"));
@@ -410,3 +405,80 @@ effect.onclick = () => {
 
    items_box.scrollTop = items_box.scrollHeight;
 }
+
+if (!localedSymbols) {
+  axios
+     .get(
+        import.meta.env.VITE_CURRENCY_API, {
+           headers: {
+              apiKey: import.meta.env.VITE_API_KEY,
+           },
+        })
+     .then((res) => {
+        if (res.status === 200 || res.status === 201) {
+           localStorage.setItem("symbols", JSON.stringify(res.data.symbols));
+           setOption(res.data.symbols);
+        }
+     });
+}
+// Exchange 
+
+let currencyExchange = document.querySelector('.currency-exchange')
+
+if(localedSymbols) {
+  setOptionExchange(localedSymbols)
+} else {
+  axios
+  .get(
+     import.meta.env.VITE_CURRENCY_API, {
+        headers: {
+           apiKey: import.meta.env.VITE_API_KEY,
+        },
+     })
+  .then((res) => {
+     if (res.status === 200 || res.status === 201) {
+        localStorage.setItem("symbols", JSON.stringify(res.data.symbols));
+        setOption(res.data.symbols);
+      }
+  })
+}
+
+function setOptionExchange(data) {
+  for(let key in data) {
+      let opt = new Option(data[key], key)
+
+      currencyExchange.append(opt)
+  }
+}
+// const apiKey = 'YOUR_API_KEY';
+// const amountInDollars = 100;
+
+// // Функция для получения курса обмена валют
+// function getExchangeRate(baseCurrency, targetCurrency) {
+//   const url = `https://openexchangerates.org/api/latest.json?app_id=${apiKey}&base=${baseCurrency}`;
+  
+//   return fetch(url)
+//     .then(response => response.json())
+//     .then(data => {
+//       const rate = data.rates[targetCurrency];
+//       return rate;
+//     })
+//     .catch(error => {
+//       console.error("Error:", error);
+//     });
+// }
+
+// // Функция для конвертации валют
+// function convertCurrency(amount, baseCurrency, targetCurrency) {
+//   return getExchangeRate(baseCurrency, targetCurrency)
+//     .then(rate => {
+//       const convertedAmount = amount * rate;
+//       return convertedAmount;
+//     });
+// }
+
+// // Пример использования
+// convertCurrency(amountInDollars, 'USD', 'RUB')
+//   .then(convertedAmount => {
+//     console.log(`${amountInDollars} USD is equal to ${convertedAmount} RUB`);
+//   });
