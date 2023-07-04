@@ -18,10 +18,6 @@ let cardAfter = document.querySelector('.card-after')
 let cardBefore = document.querySelector('.card-before')
 let valuetAfter = document.querySelector('.valuet-after') 
 let valuetH1 = document.querySelector('#valuet-h1')
-let valuetH3 = document.querySelector('#valuet-h3')
-let errorBlock = document.querySelector('.error-block')
-let errorBlockP = document.querySelector('.error-p')
-let inpEmailOne = document.querySelector('.inp-email')
 
 const getUser = () => {
     fetch(baseUrl + "/users")
@@ -31,6 +27,7 @@ const getUser = () => {
 getUser()
 
 
+console.log(signUpInp);
 
 unViewIcon.onclick = () => {
     inpPass.type = 'text'
@@ -138,6 +135,7 @@ signup.onsubmit = (e) => {
   
 
 
+    signUpInp.forEach(inp => {
     let user = {
         id: count
     }
@@ -147,45 +145,34 @@ signup.onsubmit = (e) => {
     for (let [key, value] of formData.entries()) {
         user[key] = value;
     }
-    let isValid = true;
-    signUpInp.forEach(inp => {
-        if (inp.value.length <= 3) {
-          isValid = false;
-        }
-      
-        getData('/users?email=' + inpEmailOne.value.toLowerCase().trim())
-        .then(res => {
-          if (res.data.length > 0) {
-            errorBlock.classList.add('error-anime')
-            setTimeout(() => {
-                errorBlock.classList.remove('error-anime')
-            }, 3000);
-            errorBlockP.innerHTML = 'Такой адрес уже существует'
-          } else {
-            if (isValid) {
-              inp.classList.remove('error');
-              localStorage.setItem("user", JSON.stringify(user));
-              let json = JSON.stringify(user);
-              creatUser(json);
-              location.assign("/index.html/");
-              request("/users", "get")
-                .then(res => {
-                  if (res === 404) {
-                    alert('Something went wrong');
-                  }
-                });
-              signup.reset();
-              count++;
-            } else {
-                inp.classList.add('error')
-            }          }
-        })
-        .catch(error => {
-          console.error("Error:", error);
-        });
-   
-        });
     
+            if (isFormValid) {
+             
+        
+                localStorage.setItem("user", JSON.stringify(user))
+        
+        
+                let json = JSON.stringify(user);
+        
+                creatUser(json);
+        
+                // location.assign("/index.html/")
+        
+                request("/users", "get")
+                    .then(res => {
+                        if (res === 404) {
+                            alert('Something went wrong');
+                        }
+                        
+                    });
+        
+                signup.reset();
+        
+                count++
+            }
+   
+    
+});
     
 };
 
@@ -193,38 +180,15 @@ signin.onsubmit = (e) => {
     e.preventDefault();
 
     
-    getData('/users?email=' + inpEmail.value.toLowerCase().trim())
-    .then(res => {
-      if (res.data.length > 0) {
-        if (inpPassTwo.value == res.data[0].password) {
-          localStorage.setItem("user", JSON.stringify(res.data[0]));
-          location.assign("/index.html");
-        } else {
-          inpPassTwo.classList.add('error');
-          errorBlock.classList.add('error-anime')
-          setTimeout(() => {
-              errorBlock.classList.remove('error-anime')
-          }, 3000);
-          errorBlockP.innerHTML = 'Неправильный пароль'
-          valuetH1.innerHTML = 'Error'
-          valuetH3.innerHTML = 'This password is wrong'
-          valuetH1.classList.add('h1-error')
-          valuetH3.classList.add('h1-error')
-        }
-      } else {
-        inpEmail.classList.add('error');
-        errorBlock.classList.add('error-anime')
-        setTimeout(() => {
-            errorBlock.classList.remove('error-anime')
-        }, 3000);
-        errorBlockP.innerHTML = 'Такого адреса не существует'
-      }
-    })
-    .catch(error => {
-      console.error("Error:", error);
-    });
-  
-
+getData('/users?email=' + inpEmail.value.toLowerCase().trim())
+.then(res => {
+    if(res.data[0].email) {
+        console.log(res.data);
+    }
+    if(inpPassTwo.value == res.data[0].password) {
+        location.assign(/index.html/)
+    }
+})
 }
 
 const creatUser = async (body) => {

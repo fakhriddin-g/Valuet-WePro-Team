@@ -292,41 +292,6 @@ form button:hover {
 
 .h1-error {
     color: red !important;
-    scale: 1.1 !important;
+    font-size: 58px !important;
     transition: .3s;
-}
-
-.error-block {
-    position: absolute;
-    bottom: 150px;
-    left: 35%;
-    width: 400px;
-    height: 60px;
-    background-color: black;
-    border-radius: 15px;
-    opacity: 0;
-    text-align: center;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.error-anime {
-    animation: error-animate 3s 0s ease;
-}
-
-@keyframes error-animate {
-    0% {
-        opacity: 1;
-        bottom: 0px;
-    }
-    50% {
-        bottom: 160px;
-        opacity: .8;
-    }
-    100% {
-        opacity: 0;
-        bottom: 150px;
-    }
 }
