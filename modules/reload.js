@@ -1,5 +1,9 @@
-import { getRandomColor } from "./http.requests"
-import { Chart } from 'chart.js'
+import {
+  getRandomColor
+} from "./http.requests"
+import {
+  Chart
+} from 'chart.js'
 
 export function reloadTransactions(arr, place) {
 
@@ -53,13 +57,11 @@ export function reloadTransactions(arr, place) {
       btn.innerHTML = "Error"
       btn.classList.add("btn-error")
       btn.classList.remove("btn-complete")
-    }
-    else if (item.succes === "Waiting") {
+    } else if (item.succes === "Waiting") {
       btn.innerHTML = item.succes
       btn.classList.remove("btn-error")
       btn.classList.remove("btn-complete")
-    }
-    else {
+    } else {
       btn.innerHTML = "Complete"
       btn.classList.add("btn-complete")
       btn.classList.remove("btn-error")
@@ -95,13 +97,40 @@ export function reloadMiniTransactions(arr, place) {
    </div >`
   }
 }
-export function reloadCard(arr, place) { const data = { labels: [], datasets: [{ label: 'My First Dataset', data: [], backgroundColor: [], hoverOffset: 4, borderColor: "transparent", }], }; let total = 0; place.innerHTML = ' '; for (let item of maxBalanxe(arr)) { place.innerHTML += `<div class="cards-slide"><div class="item"><div class="item__title">${item.name}</div><div class="item__statistic-box"><div class="item__text-box"><div class="item__price">${item.balance + " " + item.currens}</div><div class="item__proc">+2,59%</div></div><img src="./public/icons/btc-icon.png" alt="Btc" class="item__img"></div><img src="./public/images/statistic-vector.png" alt="" class="item__status-vector"></div></div>`; total += (+item.balance) }; function maxBalanxe(array) { return [...array].sort((a, b) => +b.balance - +a.balance); }; for (let q of maxBalanxe(arr).slice(0, 3)) { data.datasets[0].data.push(q.balance); data.labels.push(q.name); data.datasets[0].backgroundColor.push(getRandomColor()); }; return [data, total]; }
+export function reloadCard(arr, place) {
+  const data = {
+    labels: [],
+    datasets: [{
+      label: 'My First Dataset',
+      data: [],
+      backgroundColor: [],
+      hoverOffset: 4,
+      borderColor: "transparent",
+    }],
+  };
+  let total = 0;
+  place.innerHTML = ' ';
+  for (let item of maxBalanxe(arr)) {
+    place.innerHTML += `<div class="cards-slide"><div class="item"><div class="item__title">${item.name}</div><div class="item__statistic-box"><div class="item__text-box"><div class="item__price">${item.balance + " " + item.currens}</div><div class="item__proc">+2,59%</div></div><img src="./public/icons/btc-icon.png" alt="Btc" class="item__img"></div><img src="./public/images/statistic-vector.png" alt="" class="item__status-vector"></div></div>`;
+    total += (+item.balance)
+  };
+
+  function maxBalanxe(array) {
+    return [...array].sort((a, b) => +b.balance - +a.balance);
+  };
+  for (let q of maxBalanxe(arr).slice(0, 3)) {
+    data.datasets[0].data.push(q.balance);
+    data.labels.push(q.name);
+    data.datasets[0].backgroundColor.push(getRandomColor());
+  };
+  return [data, total];
+}
 
 // marketNews
 export function marketNews(arr, place) {
   place.innerHTML = ""
   for (let item of arr) {
-
+    console.log(item);
     let market_item = document.createElement("div")
     let canw_wrap = document.createElement("div")
     let canvas = document.createElement("canvas")
@@ -109,14 +138,13 @@ export function marketNews(arr, place) {
     market_item.classList.add("market_item")
     canw_wrap.classList.add("canw_wrap")
 
-    market_item.innerHTML = "ITEM"
+    market_item.innerHTML = item.publisher.name
 
     canw_wrap.append(canvas)
     market_item.append(canw_wrap)
     place.append(market_item)
 
-    let lineColor = item.succes.includes("false")
-
+    let lineColor = item.adjusted
     const ctx = canvas
     ctx.height = 47
     new Chart(ctx, {
@@ -124,10 +152,10 @@ export function marketNews(arr, place) {
       data: {
         labels: [" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
         datasets: [{
-          data: [1, 2, 2, 3, 1, 5, 1, 2, 2, 3, 1, 2],
+          data: Array.from({length: 40}, () => Math.floor(Math.random() * 12)),
           fill: false,
           pointRadius: 0
-        }]
+        }],
       },
       options: {
         scales: {
@@ -147,10 +175,10 @@ export function marketNews(arr, place) {
           line: {
             borderWidth: 3,
             borderColor: lineColor ? "red" : '#00E8AC',
-            shadowColor: 'rgba(0,0,0,0.2)',
-            shadowBlur: 10
+            shadowColor: "red"
+
           }
-        }
+        },
       }
     })
   }

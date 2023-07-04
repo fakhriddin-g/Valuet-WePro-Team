@@ -347,8 +347,15 @@ currency_inp.oninput = () => {
 
 // market
 let market_wrapper = document.querySelector(".market-wrapper")
-request("/transactions", "get")
-  .then(res => marketNews(res, market_wrapper))
+
+axios.get(`https://api.polygon.io/v2/reference/news?apiKey=iUHGKotbxMhMnt1C6YmjK0PofFRKpvIN`, {
+  // headers: {
+  //   Authorization: `Bearer ${import.meta.env.VITE_TOKEN}`
+  // }
+}).then(res => marketNews(res.data.results, market_wrapper))
+
+// request("/transactions", "get")
+//   .then(res => marketNews(res, market_wrapper))
 // wallets
 let box = document.querySelector('.wallets__top-box-cards');
 let items_box = document.querySelector('.right-block__box');
