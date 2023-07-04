@@ -160,7 +160,7 @@ export function marketNews(arr, place) {
       options: {
         scales: {
           x: {
-            display: false
+            display: "false"
           },
           y: {
             display: false
