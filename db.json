@@ -64,6 +64,27 @@
       "crypto": "Ethereum",
       "walletContentPriceCrypto": "200",
       "id": 2
+    },
+    {
+      "cryptoCurrency": "BTC",
+      "walletContentPriceUSD": "30000000",
+      "currencyBox": [
+        {
+          "totalCurrency": "$1 200 = 0,074 BTC",
+          "cryptoCurrency": "1 BTC = $6 542, 35"
+        },
+        {
+          "totalCurrency": "$1 200 = 0,074 BTC",
+          "cryptoCurrency": "1 BTC = $6 542, 35"
+        },
+        {
+          "totalCurrency": "$1 200 = 0,074 BTC",
+          "cryptoCurrency": "1 BTC = $6 542, 35"
+        }
+      ],
+      "crypto": "",
+      "walletContentPriceCrypto": "",
+      "id": 3
     }
   ],
   "transactions": [
@@ -220,6 +241,17 @@
       "img": "bitcoin",
       "currency": "EUR",
       "sum": "200"
+    },
+    {
+      "id": "42231e8c-9a82-47c3-b513-48b356ab73f6",
+      "succes": "Waiting",
+      "date": {
+        "time": "AM 10:31",
+        "day": "4 jun 2023"
+      },
+      "img": "bitcoin",
+      "currency": "BTC",
+      "sum": "12345"
     }
   ],
   "cards": [

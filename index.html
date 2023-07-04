@@ -261,7 +261,12 @@
                         <h2>Market</h2>
                     </div>
                     <div class="market-wrapper">
-                        
+                        <div class="market_item">
+                            ITEM
+                            <div class="canv_wrap">
+                                <canvas id="myChart4"></canvas>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </main>
@@ -270,6 +275,7 @@
         <div class="trans-modal">
             <h2>Add A New Transcation</h2>
             <form name="addTransaction" class="trans-row">
+                <select name="cards" id="cards"></select>
                 <input list="currency-list" class="inp-currency" type="text" name="currency" placeholder="Currency" />
                 <datalist id="currency-list"></datalist>
                 <input class="inp-sum" type="number" name="sum" placeholder="Sum" />

@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import { reloadCard, reloadMiniTransactions, reloadTransactions } from "./modules/reload"
+import { marketNews, reloadCard, reloadMiniTransactions, reloadTransactions } from "./modules/reload"
 import { useHttp } from "./modules/http.requests";
 import { Chart, registerables } from 'chart.js'
 import { wallets } from "./modules/ui";
@@ -53,7 +53,7 @@ request('/overviews', 'get').then(res => {
   let usd = []
   let cryptoName = []
   let totalBalance = 0
-  
+
   for (const i of res) {
     crypto.push(i.walletContentPriceCrypto)
     usd.push(i.walletContentPriceUSD)
@@ -85,7 +85,7 @@ const createChart = (crypto, totalBalance) => {
     }
   })
 
-  total.innerHTML += totalBalance + '$' 
+  total.innerHTML += totalBalance + '$'
 }
 
 widgetForm.onsubmit = (e) => {
@@ -108,7 +108,7 @@ widgetForm.onsubmit = (e) => {
     },
     ]
   }
- 
+
   let fm = new FormData(widgetForm)
 
   fm.forEach((value, key) => {
@@ -210,8 +210,21 @@ function setOption(data) {
 
 let addTransaction = document.forms.addTransaction;
 let trans_inputs = document.addTransaction.querySelectorAll("input");
+let trans_card_list = document.querySelector("#cards")
 
 
+request("/cards/", "get")
+  .then((res) => {
+
+
+    for (let item of res) {
+      let opt = new Option(item.name, JSON.stringify(item))
+      trans_card_list.append(opt)
+    }
+
+  }
+
+  )
 
 request("/transactions/", "get").then((res) =>
   reloadTransactions(res, trans_column)
@@ -224,6 +237,7 @@ let transAll = document.querySelector('.trans-btns #transAll')
 
 filterBtns.forEach(btn => {
   btn.onclick = () => {
+    trans_column.scrollTop = 0
     let key = btn.getAttribute("data-select")
     filterBtns.forEach(btn => btn.classList.remove("trans-btn_active"))
     btn.classList.add("trans-btn_active")
@@ -332,45 +346,9 @@ currency_inp.oninput = () => {
 };
 
 // market
-function marketChart(id) {
-  const ctx = document.getElementById(id);
-  ctx.height = 47
-  new Chart(ctx, {
-    type: "line",
-    data: {
-      labels: [" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
-      datasets: [{
-        data: [1, 2, 2, 3, 1, 5, 1, 2, 2, 3, 1, 2],
-        fill: false,
-        pointRadius: 0
-      }]
-    },
-    options: {
-      scales: {
-        x: {
-          display: false
-        },
-        y: {
-          display: false
-        }
-      },
-      plugins: {
-        legend: {
-          display: false
-        }
-      },
-      elements: {
-        line: {
-          borderWidth: 3,
-          borderColor: '#00E8AC',
-          shadowColor: 'rgba(0,0,0,0.2)',
-          shadowBlur: 10
-        }
-      }
-    }
-  });
-}
-
+let market_wrapper = document.querySelector(".market-wrapper")
+request("/transactions", "get")
+  .then(res => marketNews(res, market_wrapper))
 // wallets
 let box = document.querySelector('.wallets__top-box-cards');
 let items_box = document.querySelector('.right-block__box');
