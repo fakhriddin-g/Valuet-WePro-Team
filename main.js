@@ -2,8 +2,9 @@ import { overview, transactions } from "./modules/db"
 import { v4 as uuidv4 } from 'uuid';
 import { reloadCard, reloadMiniTransactions, reloadTransactions } from "./modules/reload"
 import { useHttp } from "./modules/http.requests";
-import { Chart } from "chart.js";
+// import { Chart } from "chart.js";
 import { wallets } from "./modules/ui";
+import axios from "axios";
 
 const { request } = useHttp();
 
@@ -46,7 +47,7 @@ let addWidgetBtn = document.querySelector(".add-widget");
 let widgetForm = document.forms.addWidget
 
 request('/overviews', 'get').then(res => {
-  wallets(res.splice(res.length - 4, res.length))
+   wallets(res.splice(res.length - 4, res.length))
 })
 
 widgetForm.onsubmit = (e) => {
@@ -77,10 +78,10 @@ widgetForm.onsubmit = (e) => {
       widget[key] = value
    })
 
-  console.log(widget);
-  request("/overviews", "post", widget)
-  widgetModal.style.display = 'none'
-  location.assign('/')
+   console.log(widget);
+   request("/overviews", "post", widget)
+   widgetModal.style.display = 'none'
+   location.assign('/')
 }
 
 addWidget.onclick = () => {
@@ -280,17 +281,40 @@ const ctx = document.getElementById('wl-chard__circle-chart');
 let total_p = document.querySelector('.effect-chart p');
 request("/cards", "get")
    .then(res => {
-      let [data, total] = reloadCard(res, box); 
+      let [data, total] = reloadCard(res, box);
       new Chart(ctx, {
          type: 'doughnut',
          data: data,
          options: {
-            cutoutPercentage: 75
-         }
+            borderWidth: 5,
+            borderRadius: 1,
+            hoverBorderWidth: 0,
+            cutout: '70%',
+            plugins: {
+               legend: {
+                  display: false,
+               },
+            },
+         },
       });
+      let ul = document.querySelector('.wl-chard__nav ul')
       total_p.innerText = `${total}$`;
+      const populateUl = () => {
+         data.labels.forEach((l, i) => {
+            let li = document.createElement("li");
+            let div = document.createElement('div');
+            div.classList.add('li-box');
+            div.innerHTML = `<p>${l}</p><span>${Math.round(data.datasets[0].data[i]/(total/100))}%</span>`;
+            li.appendChild(div);
+            ul.appendChild(li);
+         });
+      };
+      populateUl();
+
+
+
+
       let items = document.querySelectorAll('.wallets__top-box-cards .cards-slide');
-      
       items.forEach(item => {
          item.onmouseover = () => {
             item.classList.add('hover')

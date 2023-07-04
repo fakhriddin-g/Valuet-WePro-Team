@@ -172,21 +172,21 @@ $oranBlack: #ed6480;
    align-items: center;
    flex-direction: column;
    gap: 8px;
-   span{
+   span {
       @include RegularFont($colorTwo);
-      font-size:16px;
+      font-size: 14px;
    }
-   p{
+   p {
       @include BoldFont($white);
-      font-size: 18px;
+      font-size: 16px;
    }
 }
 
 .wl-chard {
    &__effect {
       position: absolute;
-      top: 45%;
-      left: 50%;
+      top: 33%;
+      left: 28%;
       translate: -50% 0;
    }
    &__nav {
@@ -215,7 +215,7 @@ $oranBlack: #ed6480;
             content: "";
             position: absolute;
             left: -20px;
-            top: 4px;
+            top: 0px;
             display: block;
             background-image: url(../public/icons/li-icon-one.svg);
             width: 19px;
@@ -223,10 +223,22 @@ $oranBlack: #ed6480;
          }
       }
    }
-   &__circle {position: relative;
+   &__circle {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 8px 30px;
    }
 }
 
+#wl-chard__circle-chart{
+   min-width:105px;
+   min-height: 105px;
+   max-width: 105px;
+   max-height: 105px;
+}
 .dw-box {
    &__left {
       max-width: 552px;
@@ -275,7 +287,6 @@ $oranBlack: #ed6480;
          width: 100%;
          max-width: 600px;
 
-         border:1px solid #1288e8;
          &__left {
             @include SemiboldFont($colorTwo);
             font-size: 14px;
@@ -288,7 +299,7 @@ $oranBlack: #ed6480;
             justify-content: space-between;
             align-items: center;
          }
-         &__box{
+         &__box {
             display: flex;
          }
          &__text-box {
