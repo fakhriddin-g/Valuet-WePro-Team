@@ -44,7 +44,7 @@ export function wallets(arr) {
 
     h3.innerHTML = item.crypto
     WalletContentPriceCrypto.innerHTML = item.walletContentPriceCrypto + ' ' + item.cryptoCurrency
-    WalletContentPriceUSD.innerHTML = '$ ' + item.walletContentPriceUSD
+    WalletContentPriceUSD.innerHTML = '$ ' + (item.walletContentPriceUSD).toLocaleString()
 
 
     WalletContentCircle_1.append(WalletContentCircle_2)
