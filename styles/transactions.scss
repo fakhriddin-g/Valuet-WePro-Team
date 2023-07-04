@@ -204,7 +204,8 @@
 
 }
 
-.trans-modal_bg {
+.trans-modal_bg,
+.overview-bg {
     position: fixed;
     top: 0;
     left: 0;
@@ -218,7 +219,8 @@
     transition: .5s linear;
 }
 
-.trans-modal {
+.trans-modal,
+.overview-modal {
     z-index: 2;
     position: fixed;
     top: 50%;
@@ -241,6 +243,7 @@
     }
 
     form {
+        display: flex;
         flex-shrink: 0;
         flex-direction: column;
         justify-content: center;

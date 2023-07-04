@@ -44,8 +44,10 @@ tabs.forEach((btn) => {
 // Overview
 let addWidget = document.querySelector(".top__container-right-btn");
 let widgetModal = document.querySelector(".overview-modal");
+let widgetModalBg = document.querySelector(".overview-bg");
 let balanceChart = document.querySelector("#middle-container__balance-chart");
 let total = document.querySelector(".circle-title span");
+let totalSpendMoney = document.querySelector(".middle-container__spend-total");
 let widgetForm = document.forms.addWidget
 
 request('/overviews', 'get').then(res => {
@@ -68,7 +70,11 @@ request('/overviews', 'get').then(res => {
 
   createChart(crypto, totalBalance)
 
-  wallets(res.splice(res.length - 4, res.length))
+  if (res.length <= 4) {
+    wallets(res.splice(0, 4))
+  }else {
+    wallets(res.splice(res.length - 4, res.length))
+  }
 })
 
 const createChart = (crypto, totalBalance) => {
@@ -85,7 +91,7 @@ const createChart = (crypto, totalBalance) => {
     }
   })
 
-  total.innerHTML += totalBalance + '$' 
+  total.innerHTML += totalBalance + '$'
 }
 
 widgetForm.onsubmit = (e) => {
@@ -121,9 +127,32 @@ widgetForm.onsubmit = (e) => {
   location.assign('/')
 }
 
+
 addWidget.onclick = () => {
-  widgetModal.style.display = 'flex'
+  widgetModalBg.style.display = 'block'
+  setTimeout(() => {
+    widgetModalBg.style.opacity = "1";
+    widgetModal.style.left = "37%";
+  }, 500);
 };
+
+widgetModalBg.onclick = () => {
+  widgetModalBg.style.opacity = "0";
+  widgetModal.style.left = "-30%";
+  setTimeout(() => {
+    widgetModalBg.style.display = "none";
+  }, 500);
+};
+
+request('/transactions', 'get').then(res => {
+  let totalSpend = 0
+  for (const i of res) {
+    totalSpend += +i.sum
+  }
+
+  totalSpendMoney.innerHTML = '$ ' + totalSpend.toLocaleString()
+  console.log(totalSpend);
+})
 
 // =====================
 

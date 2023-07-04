@@ -64,6 +64,48 @@
       "crypto": "Ethereum",
       "walletContentPriceCrypto": "200",
       "id": 2
+    },
+    {
+      "cryptoCurrency": "BTC",
+      "walletContentPriceUSD": "30000000",
+      "currencyBox": [
+        {
+          "totalCurrency": "$1 200 = 0,074 BTC",
+          "cryptoCurrency": "1 BTC = $6 542, 35"
+        },
+        {
+          "totalCurrency": "$1 200 = 0,074 BTC",
+          "cryptoCurrency": "1 BTC = $6 542, 35"
+        },
+        {
+          "totalCurrency": "$1 200 = 0,074 BTC",
+          "cryptoCurrency": "1 BTC = $6 542, 35"
+        }
+      ],
+      "crypto": "Dash",
+      "walletContentPriceCrypto": "100",
+      "id": 3
+    },
+    {
+      "cryptoCurrency": "BTC",
+      "walletContentPriceUSD": "30000000",
+      "currencyBox": [
+        {
+          "totalCurrency": "$1 200 = 0,074 BTC",
+          "cryptoCurrency": "1 BTC = $6 542, 35"
+        },
+        {
+          "totalCurrency": "$1 200 = 0,074 BTC",
+          "cryptoCurrency": "1 BTC = $6 542, 35"
+        },
+        {
+          "totalCurrency": "$1 200 = 0,074 BTC",
+          "cryptoCurrency": "1 BTC = $6 542, 35"
+        }
+      ],
+      "crypto": "Coin",
+      "walletContentPriceCrypto": "200",
+      "id": 4
     }
   ],
   "transactions": [
@@ -219,6 +261,17 @@
       },
       "img": "bitcoin",
       "currency": "EUR",
+      "sum": "200"
+    },
+    {
+      "id": "c8c754f8-ac89-4bc8-8ac5-56187e1f33e6",
+      "succes": "Waiting",
+      "date": {
+        "time": "AM 12:44",
+        "day": "4 jun 2023"
+      },
+      "img": "bitcoin",
+      "currency": "USD",
       "sum": "200"
     }
   ],
