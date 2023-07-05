@@ -4,6 +4,7 @@ import { useHttp } from "./modules/http.requests";
 import { Chart, registerables } from 'chart.js'
 import { wallets } from "./modules/ui";
 import axios from 'axios'
+import { user } from './modules/user';
 // import Chart from 'chart.js/auto'
 
 if (Chart) {
@@ -16,7 +17,8 @@ let conts = document.querySelectorAll("main .container");
 let tabs = document.querySelectorAll("aside p");
 let ellipse = document.querySelector('#ellipse')
 
-// ellipse.innerHTML = `${user.name} ${user.surname}`
+
+ellipse.innerHTML = user.name + ' ' + user.surname
 
 conts.forEach((cont, idx) => {
   if (idx !== 0) {
@@ -38,8 +40,13 @@ tabs.forEach((btn) => {
       let cont = document.querySelector(`#cont-${key}`)
       cont.classList.remove('hide')
     }
+    if (key === "out") {
+      localStorage.removeItem("user")
+      location.assign("/auth/")
+    }
   }
 })
+
 
 // Overview
 let addWidget = document.querySelector(".top__container-right-btn");
@@ -213,7 +220,7 @@ let trans_inputs = document.addTransaction.querySelectorAll("input");
 let trans_card_list = document.querySelector("#cards")
 
 
-request("/cards/", "get")
+request("/cards?user_id=" + user.id, "get")
   .then((res) => {
 
 
@@ -294,7 +301,7 @@ addTransaction.onsubmit = (e) => {
       succes: random[Math.floor(Math.random()) * random.length],
       date: {
         time: "AM " + new Date().getHours() + ":" + new Date().getMinutes(),
-        day: new Date().getDate() + " jun " + new Date().getFullYear(),
+        day: new Date().getDate() + "-" + (new Date().getMonth() + 1) + "-" + new Date().getFullYear(),
       },
       img: "bitcoin",
     };
@@ -356,6 +363,7 @@ axios.get(`https://api.polygon.io/v2/reference/news?apiKey=iUHGKotbxMhMnt1C6YmjK
 
 // request("/transactions", "get")
 //   .then(res => marketNews(res, market_wrapper))
+
 // wallets
 let box = document.querySelector('.wallets__top-box-cards');
 let items_box = document.querySelector('.right-block__box');

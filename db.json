@@ -48,6 +48,13 @@
       "surname": "Sharifkulov",
       "email": "dsarifkulo021@gmail.com",
       "password": "1234Daker"
+    },
+    {
+      "id": 8,
+      "name": "Андрей",
+      "surname": "Кузнецов",
+      "email": "refabatya@gmail.com",
+      "password": "3214qwerTT"
     }
   ],
   "overviews": [
@@ -134,6 +141,48 @@
       "crypto": "USD",
       "walletContentPriceCrypto": "20000",
       "id": 4
+    },
+    {
+      "cryptoCurrency": "BTC",
+      "walletContentPriceUSD": "30000000",
+      "currencyBox": [
+        {
+          "totalCurrency": "$1 200 = 0,074 BTC",
+          "cryptoCurrency": "1 BTC = $6 542, 35"
+        },
+        {
+          "totalCurrency": "$1 200 = 0,074 BTC",
+          "cryptoCurrency": "1 BTC = $6 542, 35"
+        },
+        {
+          "totalCurrency": "$1 200 = 0,074 BTC",
+          "cryptoCurrency": "1 BTC = $6 542, 35"
+        }
+      ],
+      "crypto": "",
+      "walletContentPriceCrypto": "",
+      "id": 5
+    },
+    {
+      "cryptoCurrency": "BTC",
+      "walletContentPriceUSD": "30000000",
+      "currencyBox": [
+        {
+          "totalCurrency": "$1 200 = 0,074 BTC",
+          "cryptoCurrency": "1 BTC = $6 542, 35"
+        },
+        {
+          "totalCurrency": "$1 200 = 0,074 BTC",
+          "cryptoCurrency": "1 BTC = $6 542, 35"
+        },
+        {
+          "totalCurrency": "$1 200 = 0,074 BTC",
+          "cryptoCurrency": "1 BTC = $6 542, 35"
+        }
+      ],
+      "crypto": "Bitcoin",
+      "walletContentPriceCrypto": "200",
+      "id": 6
     }
   ],
   "transactions": [
@@ -142,7 +191,18 @@
       "succes": "true",
       "date": {
         "time": "AM 12:9",
-        "day": "27 dec 2023"
+        "day": "7-7-2023"
+      },
+      "img": "bitcoin",
+      "currency": "BTC",
+      "sum": "20000"
+    },
+    {
+      "id": "99be5ead-3900-4cd5-910e-2a3b71b9ef07",
+      "succes": "true",
+      "date": {
+        "time": "AM 12:9",
+        "day": "27-12-2023"
       },
       "img": "bitcoin",
       "currency": "BTC",
@@ -153,7 +213,7 @@
       "succes": "true",
       "date": {
         "time": "AM 12:11",
-        "day": "27 dec 2023"
+        "day": "27-12-2023"
       },
       "img": "bitcoin",
       "currency": "BTC",
@@ -164,7 +224,7 @@
       "succes": "false",
       "date": {
         "time": "AM 12:39",
-        "day": "27 jun 2023"
+        "day": "27-6-2023"
       },
       "img": "bitcoin",
       "currency": "BTC",
@@ -175,7 +235,7 @@
       "succes": "false",
       "date": {
         "time": "AM 15:16",
-        "day": "28 jun 2023"
+        "day": "28-6-2023"
       },
       "img": "bitcoin",
       "currency": "BTC",
@@ -186,7 +246,7 @@
       "succes": "Waiting",
       "date": {
         "time": "AM 15:43",
-        "day": "28 jun 2023"
+        "day": "28-6-2023"
       },
       "img": "bitcoin",
       "currency": "BTC",
@@ -197,7 +257,7 @@
       "succes": "Waiting",
       "date": {
         "time": "AM 16:0",
-        "day": "28 jun 2023"
+        "day": "28-6-2023"
       },
       "img": "bitcoin",
       "currency": "BTC",
@@ -208,7 +268,7 @@
       "succes": "Waiting",
       "date": {
         "time": "AM 16:33",
-        "day": "28 jun 2023"
+        "day": "28-6-2023"
       },
       "img": "bitcoin",
       "currency": "BTC",
@@ -219,7 +279,7 @@
       "succes": "Waiting",
       "date": {
         "time": "AM 16:37",
-        "day": "28 jun 2023"
+        "day": "28-6-2023"
       },
       "img": "bitcoin",
       "currency": "BTC",
@@ -230,7 +290,7 @@
       "succes": "Waiting",
       "date": {
         "time": "AM 9:23",
-        "day": "1 jun 2023"
+        "day": "1-6-2023"
       },
       "img": "bitcoin",
       "currency": "BTC",
@@ -241,7 +301,7 @@
       "succes": "Waiting",
       "date": {
         "time": "AM 9:24",
-        "day": "1 jun 2023"
+        "day": "1-6-2023"
       },
       "img": "bitcoin",
       "currency": "BTC",
@@ -252,7 +312,7 @@
       "succes": "Waiting",
       "date": {
         "time": "AM 9:24",
-        "day": "1 jun 2023"
+        "day": "1-6-2023"
       },
       "img": "bitcoin",
       "currency": "BTC",
@@ -263,7 +323,7 @@
       "succes": "Waiting",
       "date": {
         "time": "AM 17:30",
-        "day": "1 jun 2023"
+        "day": "1-6-2023"
       },
       "img": "bitcoin",
       "currency": "USD",
@@ -274,7 +334,7 @@
       "succes": "Waiting",
       "date": {
         "time": "AM 17:34",
-        "day": "1 jun 2023"
+        "day": "1-6-2023"
       },
       "img": "bitcoin",
       "currency": "USD",
@@ -285,7 +345,7 @@
       "succes": "Waiting",
       "date": {
         "time": "AM 15:31",
-        "day": "3 jun 2023"
+        "day": "3-6-2023"
       },
       "img": "bitcoin",
       "currency": "EUR",
@@ -296,11 +356,35 @@
       "succes": "Waiting",
       "date": {
         "time": "AM 10:31",
-        "day": "4 jun 2023"
+        "day": "4-6-2023"
       },
       "img": "bitcoin",
       "currency": "BTC",
       "sum": "12345"
+    },
+    {
+      "id": "caf368ca-3048-4c54-b258-daa086f0356d",
+      "succes": "Waiting",
+      "date": {
+        "time": "AM 17:52",
+        "day": "5-7-2023"
+      },
+      "img": "bitcoin",
+      "cards": "{\"currens\":\"USD\",\"balance\":\"4000\",\"name\":\"MasterCard\",\"id\":2}",
+      "currency": "BTC",
+      "sum": "212"
+    },
+    {
+      "id": "6e14a721-73c6-4cec-9bac-4e477d6787ae",
+      "succes": "Waiting",
+      "date": {
+        "time": "AM 18:20",
+        "day": "5-7-2023"
+      },
+      "img": "bitcoin",
+      "cards": "{\"currens\":\"USD\",\"balance\":\"4000\",\"name\":\"MasterCard\",\"id\":2}",
+      "currency": "BTC",
+      "sum": "210"
     }
   ],
   "cards": [

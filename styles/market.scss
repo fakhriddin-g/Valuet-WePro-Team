@@ -11,6 +11,16 @@
     flex-wrap: wrap;
     gap: 24px;
 
+    .market_title {
+        font-weight: 700;
+    }
+
+
+    .trans-row {
+        width: 100%;
+        justify-content: space-between;
+    }
+
     &::after {
         content: '';
         position: absolute;
@@ -23,6 +33,8 @@
     }
 
     .market_item {
+        all:unset;
+        cursor: pointer;
         padding: 16px;
         display: flex;
         height: 179px;
@@ -34,6 +46,17 @@
         background: linear-gradient(180deg, rgba(27, 18, 78, 0.20) 0%, #0F0B38 93.37%);
         box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.25);
         position: relative;
+
+        img {
+            max-width: 70px;
+            max-height: 70px;
+        }
+
+        p,
+        .market_text {
+
+            line-height: 20px;
+        }
     }
 
     .canv_wrap {

@@ -37,7 +37,10 @@ export function reloadTransactions(arr, place) {
     trans_currency.alt = "currency"
 
     time.innerHTML = item.date.time
-    day.innerHTML = item.date.day
+    const date = new Date();
+    date.setMonth(item.date.day.split("-")[1] - 1);
+    day.innerHTML = item.date.day.split("-")[0] + " " + date.toLocaleString('en-US', { month: 'long' }).slice(0, 3).toLowerCase() + " " + item.date.day.split("-")[2]
+
 
     trans_row__center.classList.add("trans-row__center")
     trans_row__center.classList.add("trans-row")
@@ -130,21 +133,32 @@ export function reloadCard(arr, place) {
 export function marketNews(arr, place) {
   place.innerHTML = ""
   for (let item of arr) {
-    console.log(item);
-    let market_item = document.createElement("div")
+    let market_item = document.createElement("a")
+    let trans_row = document.createElement("div")
+    let market_img = document.createElement("img")
+    let market_title = document.createElement("p")
+    let market_text = document.createElement("p")
     let canw_wrap = document.createElement("div")
     let canvas = document.createElement("canvas")
 
     market_item.classList.add("market_item")
+    trans_row.classList.add("trans-row")
+    market_title.classList.add("market_title")
     canw_wrap.classList.add("canw_wrap")
 
-    market_item.innerHTML = item.publisher.name
+    market_item.href = item.amp_url
+    market_img.src = item.publisher.logo_url
+    market_img.alt = 'img'
+    market_title.innerHTML = item.publisher.name
+    market_text.innerHTML = item.title
 
     canw_wrap.append(canvas)
-    market_item.append(canw_wrap)
+    trans_row.append(market_img, market_title)
+    market_item.append(trans_row, market_text, canw_wrap)
     place.append(market_item)
-
-    let lineColor = item.adjusted
+    // market_item.onclick
+    console.log(item);
+    let lineColor = Math.random().toFixed()
     const ctx = canvas
     ctx.height = 47
     new Chart(ctx, {
@@ -152,7 +166,7 @@ export function marketNews(arr, place) {
       data: {
         labels: [" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
         datasets: [{
-          data: Array.from({length: 40}, () => Math.floor(Math.random() * 12)),
+          data: Array.from({ length: 12 }, () => Math.floor(Math.random() * 12)),
           fill: false,
           pointRadius: 0
         }],
@@ -174,7 +188,7 @@ export function marketNews(arr, place) {
         elements: {
           line: {
             borderWidth: 3,
-            borderColor: lineColor ? "red" : '#00E8AC',
+            borderColor: lineColor > 0 ? "red" : '#00E8AC',
             shadowColor: "red"
 
           }
