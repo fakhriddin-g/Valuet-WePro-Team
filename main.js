@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { reloadCard, reloadMiniTransactions, reloadTransactions } from "./modules/reload"
 import { useHttp } from "./modules/http.requests";
 import { Chart, registerables } from 'chart.js'
-import { wallets } from "./modules/ui";
+import { overview } from "./modules/ui";
 import axios from 'axios'
 // import Chart from 'chart.js/auto'
 
@@ -42,6 +42,8 @@ tabs.forEach((btn) => {
 })
 
 // Overview
+let middleContainerWallets = document.querySelector('.middle-container__wallets')
+
 let addWidget = document.querySelector(".top__container-right-btn");
 let widgetModal = document.querySelector(".overview-modal");
 let widgetModalBg = document.querySelector(".overview-bg");
@@ -71,9 +73,9 @@ request('/overviews', 'get').then(res => {
   createChart(crypto, totalBalance)
 
   if (res.length <= 4) {
-    wallets(res.splice(0, 4))
+    overview((res.splice(0, 4)), middleContainerWallets)
   }else {
-    wallets(res.splice(res.length - 4, res.length))
+    overview((res.splice(res.length - 4, res.length)), middleContainerWallets)
   }
 })
 

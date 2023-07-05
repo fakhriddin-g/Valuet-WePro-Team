@@ -1,6 +1,5 @@
-let middleContainerWallets = document.querySelector('.middle-container__wallets')
 
-export function wallets(arr) {
+export function overview(arr, place) {
   for (const item of arr) {
     let middleContainerWallet = document.createElement('div')
     let h3 = document.createElement('h3')
@@ -52,6 +51,6 @@ export function wallets(arr) {
     WalletContentPrice.append(WalletContentPriceCrypto, WalletContentPriceUSD)
     middleContainerWalletContent.append(WalletContentCircle_1, WalletContentPrice, WalletContentCurrency)
     middleContainerWallet.append(h3, middleContainerWalletContent)
-    middleContainerWallets.prepend(middleContainerWallet)
+    place.prepend(middleContainerWallet)
   }
 }
